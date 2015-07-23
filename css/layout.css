@@ -305,30 +305,30 @@ ul#nav li.current a { color: #F06000; }
 /*----------------------------------------------*/
 
 .bars {
-	width: 95%;
+	width: 100%;
 	float: left;
 	padding: 0;
 	text-align: left;
 }
 .bars .skills {
-  	margin-top: 36px;
+  	margin-top: 20px;
    list-style: none;
 }
 .bars li {
    position: relative;
-  	margin-bottom: 60px;
+  	margin-bottom: 30px;
   	background: #ccc;
   	height: 42px;
   	border-radius: 3px;
 }
 .bars li em {
-	font: 15px 'opensans-bold', sans-serif;
+	font: 12px 'opensans-bold', sans-serif;
    color: #313131;
 	text-transform: uppercase;
-   letter-spacing: 2px;
+   letter-spacing: 1px;
 	font-weight: normal;
    position: relative;
-	top: -36px;
+	top: -20px;
 }
 .bar-expand {
    position: absolute;
@@ -344,37 +344,81 @@ ul#nav li.current a { color: #F06000; }
    border-radius: 3px 0 0 3px;
 }
 
-.photoshop {
-  	width: 60%;
-  	-moz-animation: photoshop 2s ease;
-  	-webkit-animation: photoshop 2s ease;
+.R {
+  	width: 95%;
+  	-moz-animation: photoshop 1s ease;
+  	-webkit-animation: photoshop 1s ease;
 }
-.illustrator {
-  	width: 55%;
-  	-moz-animation: illustrator 2s ease;
-  	-webkit-animation: illustrator 2s ease;
-}
-.wordpress {
+.Prolog {
   	width: 50%;
-  	-moz-animation: wordpress 2s ease;
-  	-webkit-animation: wordpress 2s ease;
+  	-moz-animation: photoshop 1s ease;
+  	-webkit-animation: photoshop 1s ease;
+}
+.CSharp {
+  	width: 90%;
+  	-moz-animation: illustrator 1s ease;
+  	-webkit-animation: illustrator 1s ease;
+}
+.SQL {
+  	width: 80%;
+  	-moz-animation: wordpress 1s ease;
+  	-webkit-animation: wordpress 1s ease;
 }
 .css {
-  	width: 90%;
-  	-moz-animation: css 2s ease;
-  	-webkit-animation: css 2s ease;
+  	width: 50%;
+  	-moz-animation: css 1s ease;
+  	-webkit-animation: css 1s ease;
 }
 .html5 {
-  	width: 80%;
-  	-moz-animation: html5 2s ease;
-  	-webkit-animation: html5 2s ease;
-}
-.jquery {
   	width: 50%;
-  	-moz-animation: jquery 2s ease;
-  	-webkit-animation: jquery 2s ease;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
 }
-
+.Mobile {
+  	width: 50%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.WebApp {
+  	width: 70%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.ASPNET {
+  	width: 80%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.CDSS {
+  	width: 90%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.DM {
+  	width: 90%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.ML {
+  	width: 70%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.SP {
+  	width: 50%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.JAVA {
+  	width: 70%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
+.Python {
+  	width: 50%;
+  	-moz-animation: html5 1s ease;
+  	-webkit-animation: html5 1s ease;
+}
 @-moz-keyframes photoshop {
   0%   { width: 0px;  }
   100% { width: 60%;  }
@@ -649,7 +693,7 @@ call-to-action .button {
    color: #0D0D0D;
 }
 #call-to-action p span {
-	font-family: 'opensans-semibold', sans-serif; 
+	font-family: 'opensans-semibold', sans-serif;
 	color: #D8D8D8;
 }
 
@@ -673,7 +717,7 @@ call-to-action .button {
    padding-bottom: 66px;
 }
 #testimonials h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;   
+   font: 18px/24px 'opensans-bold', sans-serif;
    text-transform: uppercase;
    letter-spacing: 3px;
    color: #fff;
@@ -1022,4 +1066,3 @@ footer .social-links li:first-child { margin-left: 0; }
  	border-radius: 100%;
 }
 #go-top a:hover { background-color: #0F9095; }
-
