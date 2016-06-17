@@ -77,9 +77,10 @@ audio:not([controls]) {
 [hidden] { display: none; }
 
 code, kbd, pre, samp {
-   font-family: monospace, serif;
+   font-family: monospace, serif,Microsoft JhengHei;
    font-size: 1em;
 }
+
 
 pre {
    white-space: pre;
@@ -143,7 +144,7 @@ html {
 
 body {
    background: #fff;
-   font-family: 'opensans-regular', sans-serif;
+   font-family: 'opensans-regular', sans-serif, Microsoft JhengHei;
    font-weight: normal;
    font-size: 15px;
    line-height: 30px;
@@ -159,7 +160,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
    color: #313131;
-	font-family: 'opensans-bold', sans-serif;
+	font-family: 'opensans-bold', sans-serif,Microsoft JhengHei;
    font-weight: normal;
 }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
@@ -196,14 +197,14 @@ blockquote:before {
    font-size: 80px;
    line-height: 0px;
    margin: 0;
-   font-family: arial, sans-serif;
+   font-family: arial, sans-serif,Microsoft JhengHei;
 
    position: absolute;
    top:  30px;
 	left: 0;
 }
 blockquote p {
-   font-family: 'librebaskerville-italic', serif;
+   font-family: 'librebaskerville-italic', serif,Microsoft JhengHei;
    padding: 0;
    font-size: 18px;
    line-height: 36px;
@@ -238,7 +239,7 @@ blockquote cite a:visited { color: #8B9798; border: none }
 	opacity: 0.45;
 	position: absolute;
 	font-size: 80px;
-   font-family: Arial, Sans-Serif;
+   font-family: Arial, Sans-Serif,Microsoft JhengHei;
 }
 .pull-quote:before {
 	content: "\201C";
@@ -259,7 +260,7 @@ blockquote cite a:visited { color: #8B9798; border: none }
 
 /* Abbreviations */
 abbr {
-   font-family: 'opensans-bold', sans-serif;
+   font-family: 'opensans-bold', sans-serif,Microsoft JhengHei;
 	font-variant: small-caps;
 	text-transform: lowercase;
    letter-spacing: .5px;
@@ -273,7 +274,7 @@ abbr:hover { cursor: help; }
 	margin: 0;
 	padding: 14px 6px 0 0;
 	font-size: 84px;
-	font-family: /* Copperplate */ 'opensans-bold', sans-serif;
+	font-family: /* Copperplate */ 'opensans-bold', sans-serif,Microsoft JhengHei;
    line-height: 60px;
 	text-indent: 0;
 	background: transparent;
@@ -344,7 +345,7 @@ li p { }
 .stats-tabs li a {
 	display: inline-block;
 	font-size: 22px;
-	font-family: 'opensans-bold', sans-serif;
+	font-family: 'opensans-bold', sans-serif,Microsoft JhengHei;
    border: none;
    color: #313131;
 }
@@ -355,7 +356,7 @@ li p { }
 	display: block;
 	margin: 6px 0 0 0;
 	font-size: 13px;
-	font-family: 'opensans-regular', sans-serif;
+	font-family: 'opensans-regular', sans-serif,Microsoft JhengHei;
    color: #8B9798;
 }
 
