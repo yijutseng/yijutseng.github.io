@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yi-Ju Tseng @ CGU on Yi-Ju Tseng @ CGU</title>
+    <link>/index.xml</link>
+    <description>Recent content in Yi-Ju Tseng @ CGU on Yi-Ju Tseng @ CGU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Yi-Ju Tseng</copyright>
+    <lastBuildDate>Fri, 18 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Antihyperglycemic Medications: A Claims-based Estimate of First-line Therapy Use Prior to Initialization of Second-line Medications</title>
+      <link>/publication/metformin-use/</link>
+      <pubDate>Fri, 18 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/metformin-use/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - Data Visualization</title>
+      <link>/talk/20170807R3/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170807R3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>使用電子病歷預測傳染病流行趨勢－以流行性感冒與流感併發重症為例</title>
+      <link>/project/EHRInfPred/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/EHRInfPred/</guid>
+      <description>&lt;p&gt;流行性感冒是一種急性病毒性呼吸道傳染病，每年發生季節性的流行，爆發流行快速，且有可能出現嚴重併發症。流行性感冒的防治需仰賴傳染病監測系統，以利公共衛生單位盡速介入處置。然而，雖有規定之通報流程與時間，其不完全性與延遲均可能影響疫情研判時程，延後防疫資源的投入。除了改善傳染病通報方式外，若能進一步在傳染病發生前，利用現有資料預測未來趨勢，更可加速後續疫情控制與醫療資源的準備與投入。根據疾病的流行病學特徵，某些傳染病具有流行與傳播的週期趨勢，研究人員可使用時間序列模型，預測傳染病的波動趨勢。我們預計分析曾在96年至107年間至某醫學中心各院區看診，並有至少一次流行性感冒診斷之病患的電子病歷，篩選出流行性感冒與流感併發重症的案例，並依此案例建立其流行趨勢預測模型，以作為疫情評估與醫療資源調度的基準。使用的預測模型演算法包括自迴歸積分移動平均模型、支持向量機迴歸，以及隨機森林迴歸等三種演算法，整合來自電子病歷的監測結果，建立並驗證流行趨勢預測模型。藉由此預測模型，使醫療機構能更早一步發現可能的流行趨勢，即時啟動防疫措施與調整投入之醫療資源，改善醫療機構資源分配以及提升醫療機構的緊急應變量能。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - EDA</title>
+      <link>/talk/20170731R2/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170731R2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - 101</title>
+      <link>/talk/20170724R1/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170724R1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Difference Between Estimated Purchase Price and Insurance Payments for Knee and Hip Implants in Privately Insured Patients Younger Than 65 Years</title>
+      <link>/publication/implant-payment/</link>
+      <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/publication/implant-payment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>以整合型健康照護資料評估傳染病盛行情形</title>
+      <link>/project/EHRInf/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/project/EHRInf/</guid>
+      <description>&lt;p&gt;法定傳染病的監測是疫情防治工作中非常重要的一環，透過傳染病通報之機制，公共衛生單位得以掌握傳染病的相關資訊，及早研判疫情並介入處置，避免疫情的擴散。傳統的被動式通報的不完全性或延遲通報是很大的問題，通報率則可能因不同疾病、地區與通報醫師而有所差異，進而影響傳染病監測品質，因此，改善通報品質與效率為提升傳染病監測與防治能量的重要議題。&lt;/p&gt;
+
+&lt;p&gt;本研究預計使用整合型健康照護資料，包括健康保險資料、實驗室檢驗資料與電子病歷等，搭配完善的案例定義，評估傳染病的盛行情形，並與現今法定傳染病通報結果做比較，評估使用整合型健康照護資料輔助傳染病監測的可行性。研究預計著眼於流感併發重症、急性病毒性C型肝炎以及登革熱等具公共衛生重要性的法定傳染病，定義其案例篩選規則，計算各傳染病之案例數與發生率/盛行率，並與疾病管制署的通報數據對照比較，分析影響通報率的重要因素。最後整合多項資料來源的分析結果，建立使用整合型健康資料的疫情監測模型，系統化的推估傳染病的盛行情形。&lt;/p&gt;
+
+&lt;p&gt;未來可藉由此整合型健康照護資料分析模式輔助傳染病監測，使傳染病的監測更為主動、及時且穩定，期盼最終能進一步改善現今傳染病監測模式與介入流程，使傳染病監測品質與效率更加卓越。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

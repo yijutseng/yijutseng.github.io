@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Recent &amp; Upcoming Talks on Yi-Ju Tseng @ CGU</title>
+    <link>/talk/index.xml</link>
+    <description>Recent content in Recent &amp; Upcoming Talks on Yi-Ju Tseng @ CGU</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017 Yi-Ju Tseng</copyright>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - Data Visualization</title>
+      <link>/talk/20170807R3/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170807R3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - EDA</title>
+      <link>/talk/20170731R2/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170731R2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R資料分析三部曲 Trilogy of Data Analysis with R - 101</title>
+      <link>/talk/20170724R1/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/20170724R1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
