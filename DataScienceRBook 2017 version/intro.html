@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>資料科學與R語言</title>
+  <meta name="description" content="介紹如何使用R語言完成資料讀取、處理、分析與呈現，以及大數據技術與R的整合">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="資料科學與R語言" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://yijutseng.github.io/DataScienceRBook" />
+  
+  <meta property="og:description" content="介紹如何使用R語言完成資料讀取、處理、分析與呈現，以及大數據技術與R的整合" />
+  <meta name="github-repo" content="yijutseng/DataAnalyticsWithRBook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="資料科學與R語言" />
+  
+  <meta name="twitter:description" content="介紹如何使用R語言完成資料讀取、處理、分析與呈現，以及大數據技術與R的整合" />
+  
+
+<meta name="author" content="曾意儒 Yi-Ju Tseng">
+
+
+<meta name="date" content="2017-03-20">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="RDataStructure.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/detect-resize/jquery.resize.js"></script>
+<link href="libs/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+<script src="libs/jquery-ui/jquery-ui.min.js"></script>
+<script src="libs/d3/d3.min.js"></script>
+<script src="libs/vega/vega.min.js"></script>
+<script src="libs/lodash/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="libs/ggvis/css/ggvis.css" rel="stylesheet" />
+<script src="libs/ggvis/js/ggvis.js"></script>
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/plotlyjs/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotlyjs/plotly-latest.min.js"></script>
+<script src="libs/plotly-binding/plotly.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2407708-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">資料科學與R語言</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#preface"></a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> R語言101</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r"><i class="fa fa-check"></i><b>1.1</b> 什麼是R語言</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#section-1.2"><i class="fa fa-check"></i><b>1.2</b> 函數使用</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#section-1.3"><i class="fa fa-check"></i><b>1.3</b> 變數設定</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#section-1.4"><i class="fa fa-check"></i><b>1.4</b> 執行視窗</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#DataType"><i class="fa fa-check"></i><b>1.5</b> 資料型態</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#-numeric"><i class="fa fa-check"></i><b>1.5.1</b> 數值 numeric</a></li>
+<li class="chapter" data-level="1.5.2" data-path="intro.html"><a href="intro.html#-character"><i class="fa fa-check"></i><b>1.5.2</b> 字串 character</a></li>
+<li class="chapter" data-level="1.5.3" data-path="intro.html"><a href="intro.html#-logic"><i class="fa fa-check"></i><b>1.5.3</b> 布林變數 logic</a></li>
+<li class="chapter" data-level="1.5.4" data-path="intro.html"><a href="intro.html#-date"><i class="fa fa-check"></i><b>1.5.4</b> 日期 (Date)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#section-1.6"><i class="fa fa-check"></i><b>1.6</b> 基本運算子</a><ul>
+<li class="chapter" data-level="1.6.1" data-path="intro.html"><a href="intro.html#section-1.6.1"><i class="fa fa-check"></i><b>1.6.1</b> 數學基本運算</a></li>
+<li class="chapter" data-level="1.6.2" data-path="intro.html"><a href="intro.html#section-1.6.2"><i class="fa fa-check"></i><b>1.6.2</b> 進階數學函數</a></li>
+<li class="chapter" data-level="1.6.3" data-path="intro.html"><a href="intro.html#section-1.6.3"><i class="fa fa-check"></i><b>1.6.3</b> 邏輯運算</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#section-1.7"><i class="fa fa-check"></i><b>1.7</b> 錯誤訊息</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#help"><i class="fa fa-check"></i><b>1.8</b> Help</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="RDataStructure.html"><a href="RDataStructure.html"><i class="fa fa-check"></i><b>2</b> R 資料結構</a><ul>
+<li class="chapter" data-level="2.1" data-path="RDataStructure.html"><a href="RDataStructure.html#-vector"><i class="fa fa-check"></i><b>2.1</b> 向量 vector</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="RDataStructure.html"><a href="RDataStructure.html#section-2.1.1"><i class="fa fa-check"></i><b>2.1.1</b> 快速產生向量函數</a></li>
+<li class="chapter" data-level="2.1.2" data-path="RDataStructure.html"><a href="RDataStructure.html#section-2.1.2"><i class="fa fa-check"></i><b>2.1.2</b> 向量運算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="RDataStructure.html"><a href="RDataStructure.html#-factor"><i class="fa fa-check"></i><b>2.2</b> 因子 factor</a></li>
+<li class="chapter" data-level="2.3" data-path="RDataStructure.html"><a href="RDataStructure.html#-list"><i class="fa fa-check"></i><b>2.3</b> 列表 list</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="RDataStructure.html"><a href="RDataStructure.html#section-2.3.1"><i class="fa fa-check"></i><b>2.3.1</b> 列表資料擷取</a></li>
+<li class="chapter" data-level="2.3.2" data-path="RDataStructure.html"><a href="RDataStructure.html#section-2.3.2"><i class="fa fa-check"></i><b>2.3.2</b> 列表資料編輯設定</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="RDataStructure.html"><a href="RDataStructure.html#-matrix"><i class="fa fa-check"></i><b>2.4</b> 矩陣 matrix</a></li>
+<li class="chapter" data-level="2.5" data-path="RDataStructure.html"><a href="RDataStructure.html#-data.frame"><i class="fa fa-check"></i><b>2.5</b> 資料框 data.frame</a></li>
+<li class="chapter" data-level="2.6" data-path="RDataStructure.html"><a href="RDataStructure.html#-data.table"><i class="fa fa-check"></i><b>2.6</b> 資料表 data.table</a></li>
+<li class="chapter" data-level="2.7" data-path="RDataStructure.html"><a href="RDataStructure.html#section-2.7"><i class="fa fa-check"></i><b>2.7</b> 資料屬性查詢函數</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="controlstructure.html"><a href="controlstructure.html"><i class="fa fa-check"></i><b>3</b> 控制流程</a><ul>
+<li class="chapter" data-level="3.1" data-path="controlstructure.html"><a href="controlstructure.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 條件判斷</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="controlstructure.html"><a href="controlstructure.html#if-else"><i class="fa fa-check"></i><b>3.1.1</b> if-else敘述</a></li>
+<li class="chapter" data-level="3.1.2" data-path="controlstructure.html"><a href="controlstructure.html#if-else-if-else"><i class="fa fa-check"></i><b>3.1.2</b> if-else if-else</a></li>
+<li class="chapter" data-level="3.1.3" data-path="controlstructure.html"><a href="controlstructure.html#if"><i class="fa fa-check"></i><b>3.1.3</b> 巢狀if</a></li>
+<li class="chapter" data-level="3.1.4" data-path="controlstructure.html"><a href="controlstructure.html#ifelse"><i class="fa fa-check"></i><b>3.1.4</b> ifelse()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="controlstructure.html"><a href="controlstructure.html#section-3.2"><i class="fa fa-check"></i><b>3.2</b> 迴圈</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="controlstructure.html"><a href="controlstructure.html#for"><i class="fa fa-check"></i><b>3.2.1</b> for</a></li>
+<li class="chapter" data-level="3.2.2" data-path="controlstructure.html"><a href="controlstructure.html#while"><i class="fa fa-check"></i><b>3.2.2</b> while</a></li>
+<li class="chapter" data-level="3.2.3" data-path="controlstructure.html"><a href="controlstructure.html#break"><i class="fa fa-check"></i><b>3.2.3</b> break</a></li>
+<li class="chapter" data-level="3.2.4" data-path="controlstructure.html"><a href="controlstructure.html#next"><i class="fa fa-check"></i><b>3.2.4</b> next</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="controlstructure.html"><a href="controlstructure.html#purrr"><i class="fa fa-check"></i><b>3.3</b> purrr</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="function.html"><a href="function.html"><i class="fa fa-check"></i><b>4</b> 函數</a></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> 資料讀取與匯出</a><ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#file"><i class="fa fa-check"></i><b>5.1</b> 從檔案匯入基本資料格式</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="io.html"><a href="io.html#import-dataset-rstudio"><i class="fa fa-check"></i><b>5.1.1</b> Import Dataset功能 (RStudio)</a></li>
+<li class="chapter" data-level="5.1.2" data-path="io.html"><a href="io.html#-.txt"><i class="fa fa-check"></i><b>5.1.2</b> 分隔文字檔 .txt</a></li>
+<li class="chapter" data-level="5.1.3" data-path="io.html"><a href="io.html#csv"><i class="fa fa-check"></i><b>5.1.3</b> CSV檔案 .csv</a></li>
+<li class="chapter" data-level="5.1.4" data-path="io.html"><a href="io.html#excel-.xls"><i class="fa fa-check"></i><b>5.1.4</b> Excel檔案 .xls</a></li>
+<li class="chapter" data-level="5.1.5" data-path="io.html"><a href="io.html#r-.rds"><i class="fa fa-check"></i><b>5.1.5</b> R物件 .rds</a></li>
+<li class="chapter" data-level="5.1.6" data-path="io.html"><a href="io.html#r-.r"><i class="fa fa-check"></i><b>5.1.6</b> R程式 .R</a></li>
+<li class="chapter" data-level="5.1.7" data-path="io.html"><a href="io.html#-"><i class="fa fa-check"></i><b>5.1.7</b> 純文字資料 (無分隔)</a></li>
+<li class="chapter" data-level="5.1.8" data-path="io.html"><a href="io.html#section-5.1.8"><i class="fa fa-check"></i><b>5.1.8</b> 其他格式</a></li>
+<li class="chapter" data-level="5.1.9" data-path="io.html"><a href="io.html#section-5.1.9"><i class="fa fa-check"></i><b>5.1.9</b> 其他讀檔注意事項</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 從網路匯入資料</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="io.html"><a href="io.html#open-data"><i class="fa fa-check"></i><b>5.2.1</b> Open Data</a></li>
+<li class="chapter" data-level="5.2.2" data-path="io.html"><a href="io.html#api"><i class="fa fa-check"></i><b>5.2.2</b> API (Application programming interfaces)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="io.html"><a href="io.html#json"><i class="fa fa-check"></i><b>5.2.3</b> JSON格式檔案</a></li>
+<li class="chapter" data-level="5.2.4" data-path="io.html"><a href="io.html#xml"><i class="fa fa-check"></i><b>5.2.4</b> XML 可延伸標記式語言</a></li>
+<li class="chapter" data-level="5.2.5" data-path="io.html"><a href="io.html#-webscraping"><i class="fa fa-check"></i><b>5.2.5</b> 網頁爬蟲 Webscraping</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#facebook"><i class="fa fa-check"></i><b>5.3</b> Facebook資料擷取</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="io.html"><a href="io.html#graph-api-in-r"><i class="fa fa-check"></i><b>5.3.1</b> Graph API in R</a></li>
+<li class="chapter" data-level="5.3.2" data-path="io.html"><a href="io.html#rfacebook-package"><i class="fa fa-check"></i><b>5.3.2</b> Rfacebook package</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 資料匯出</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="io.html"><a href="io.html#-.txt"><i class="fa fa-check"></i><b>5.4.1</b> 文字檔 .txt</a></li>
+<li class="chapter" data-level="5.4.2" data-path="io.html"><a href="io.html#csv-.csv"><i class="fa fa-check"></i><b>5.4.2</b> CSV檔 .csv</a></li>
+<li class="chapter" data-level="5.4.3" data-path="io.html"><a href="io.html#r-.rds-1"><i class="fa fa-check"></i><b>5.4.3</b> R物件 .rds</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="manipulation.html"><a href="manipulation.html"><i class="fa fa-check"></i><b>6</b> 資料處理與清洗</a><ul>
+<li class="chapter" data-level="6.1" data-path="manipulation.html"><a href="manipulation.html#tidy-data"><i class="fa fa-check"></i><b>6.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="6.2" data-path="manipulation.html"><a href="manipulation.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 資料型別轉換處理</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="manipulation.html"><a href="manipulation.html#section-6.2.1"><i class="fa fa-check"></i><b>6.2.1</b> 資料型別檢查</a></li>
+<li class="chapter" data-level="6.2.2" data-path="manipulation.html"><a href="manipulation.html#section-6.2.2"><i class="fa fa-check"></i><b>6.2.2</b> 資料型別轉換</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="manipulation.html"><a href="manipulation.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 文字字串處理</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="manipulation.html"><a href="manipulation.html#section-6.3.1"><i class="fa fa-check"></i><b>6.3.1</b> 基本處理</a></li>
+<li class="chapter" data-level="6.3.2" data-path="manipulation.html"><a href="manipulation.html#section-6.3.2"><i class="fa fa-check"></i><b>6.3.2</b> 搜尋字串</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="manipulation.html"><a href="manipulation.html#subset"><i class="fa fa-check"></i><b>6.4</b> 子集Subset</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="io.html"><a href="io.html#-"><i class="fa fa-check"></i><b>6.4.1</b> 一維資料 (向量)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="manipulation.html"><a href="manipulation.html#section-6.4.2"><i class="fa fa-check"></i><b>6.4.2</b> 二維資料</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="manipulation.html"><a href="manipulation.html#section-6.5"><i class="fa fa-check"></i><b>6.5</b> 排序</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="manipulation.html"><a href="manipulation.html#sort-"><i class="fa fa-check"></i><b>6.5.1</b> sort 向量排序</a></li>
+<li class="chapter" data-level="6.5.2" data-path="manipulation.html"><a href="manipulation.html#order"><i class="fa fa-check"></i><b>6.5.2</b> order</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="manipulation.html"><a href="manipulation.html#section-6.6"><i class="fa fa-check"></i><b>6.6</b> 資料組合</a></li>
+<li class="chapter" data-level="6.7" data-path="manipulation.html"><a href="manipulation.html#reshape"><i class="fa fa-check"></i><b>6.7</b> 長表與寬表</a></li>
+<li class="chapter" data-level="6.8" data-path="manipulation.html"><a href="manipulation.html#section-6.8"><i class="fa fa-check"></i><b>6.8</b> 遺漏值處理</a></li>
+<li class="chapter" data-level="6.9" data-path="manipulation.html"><a href="manipulation.html#manCase"><i class="fa fa-check"></i><b>6.9</b> 綜合練習範例Case study</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="manipulation.html"><a href="manipulation.html#section-6.9.1"><i class="fa fa-check"></i><b>6.9.1</b> 載入資料</a></li>
+<li class="chapter" data-level="6.9.2" data-path="manipulation.html"><a href="manipulation.html#section-6.9.2"><i class="fa fa-check"></i><b>6.9.2</b> 資料總覽</a></li>
+<li class="chapter" data-level="6.9.3" data-path="manipulation.html"><a href="manipulation.html#section-6.9.3"><i class="fa fa-check"></i><b>6.9.3</b> 資料排序後篩選</a></li>
+<li class="chapter" data-level="6.9.4" data-path="manipulation.html"><a href="manipulation.html#section-6.9.4"><i class="fa fa-check"></i><b>6.9.4</b> 欄位值篩選</a></li>
+<li class="chapter" data-level="6.9.5" data-path="manipulation.html"><a href="manipulation.html#section-6.9.5"><i class="fa fa-check"></i><b>6.9.5</b> 字串條件搜尋後篩選</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="eda.html"><a href="eda.html"><i class="fa fa-check"></i><b>7</b> 探索式資料分析</a><ul>
+<li class="chapter" data-level="7.1" data-path="eda.html"><a href="eda.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 什麼是探索式資料分析</a></li>
+<li class="chapter" data-level="7.2" data-path="eda.html"><a href="eda.html#datatable"><i class="fa fa-check"></i><b>7.2</b> data.table</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="eda.html"><a href="eda.html#i-"><i class="fa fa-check"></i><b>7.2.1</b> i 觀察值篩選邏輯</a></li>
+<li class="chapter" data-level="7.2.2" data-path="eda.html"><a href="eda.html#j-"><i class="fa fa-check"></i><b>7.2.2</b> j 欄位選擇運算</a></li>
+<li class="chapter" data-level="7.2.3" data-path="eda.html"><a href="eda.html#by-"><i class="fa fa-check"></i><b>7.2.3</b> by 分組依據</a></li>
+<li class="chapter" data-level="7.2.4" data-path="eda.html"><a href="eda.html#section-7.2.4"><i class="fa fa-check"></i><b>7.2.4</b> 參考文件與資源</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="eda.html"><a href="eda.html#dplyr"><i class="fa fa-check"></i><b>7.3</b> dplyr</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="eda.html"><a href="eda.html#select"><i class="fa fa-check"></i><b>7.3.1</b> select()</a></li>
+<li class="chapter" data-level="7.3.2" data-path="eda.html"><a href="eda.html#filter"><i class="fa fa-check"></i><b>7.3.2</b> filter()</a></li>
+<li class="chapter" data-level="7.3.3" data-path="eda.html"><a href="eda.html#mutate"><i class="fa fa-check"></i><b>7.3.3</b> mutate()</a></li>
+<li class="chapter" data-level="7.3.4" data-path="eda.html"><a href="eda.html#summarise"><i class="fa fa-check"></i><b>7.3.4</b> summarise()</a></li>
+<li class="chapter" data-level="7.3.5" data-path="eda.html"><a href="eda.html#group_by"><i class="fa fa-check"></i><b>7.3.5</b> group_by()</a></li>
+<li class="chapter" data-level="7.3.6" data-path="eda.html"><a href="eda.html#arrange"><i class="fa fa-check"></i><b>7.3.6</b> arrange()</a></li>
+<li class="chapter" data-level="7.3.7" data-path="eda.html"><a href="eda.html#rename"><i class="fa fa-check"></i><b>7.3.7</b> rename()</a></li>
+<li class="chapter" data-level="7.3.8" data-path="eda.html"><a href="eda.html#-1"><i class="fa fa-check"></i><b>7.3.8</b> 參考文件與資源</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="vis.html"><a href="vis.html"><i class="fa fa-check"></i><b>8</b> 資料視覺化</a><ul>
+<li class="chapter" data-level="8.1" data-path="vis.html"><a href="vis.html#section-8.1"><i class="fa fa-check"></i><b>8.1</b> 資料視覺化的目的</a></li>
+<li class="chapter" data-level="8.2" data-path="vis.html"><a href="vis.html#ggplot2"><i class="fa fa-check"></i><b>8.2</b> ggplot2簡介</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="vis.html"><a href="vis.html#qplot"><i class="fa fa-check"></i><b>8.2.1</b> qplot()</a></li>
+<li class="chapter" data-level="8.2.2" data-path="vis.html"><a href="vis.html#ggplot"><i class="fa fa-check"></i><b>8.2.2</b> ggplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="vis.html"><a href="vis.html#ggplot2"><i class="fa fa-check"></i><b>8.3</b> ggplot2+地圖</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="vis.html"><a href="vis.html#choropleth-map"><i class="fa fa-check"></i><b>8.3.1</b> Choropleth map面量圖</a></li>
+<li class="chapter" data-level="8.3.2" data-path="vis.html"><a href="vis.html#ggmap"><i class="fa fa-check"></i><b>8.3.2</b> ggmap()</a></li>
+<li class="chapter" data-level="8.3.3" data-path="vis.html"><a href="vis.html#density-map"><i class="fa fa-check"></i><b>8.3.3</b> Density Map</a></li>
+<li class="chapter" data-level="8.3.4" data-path="vis.html"><a href="vis.html#section-8.3.4"><i class="fa fa-check"></i><b>8.3.4</b> 參考資料</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="vis.html"><a href="vis.html#taiwan"><i class="fa fa-check"></i><b>8.4</b> Taiwan的面量圖</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="vis.html"><a href="vis.html#ggmap"><i class="fa fa-check"></i><b>8.4.1</b> ggmap+面量圖</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="vis.html"><a href="vis.html#heatmap"><i class="fa fa-check"></i><b>8.5</b> Heatmap</a></li>
+<li class="chapter" data-level="8.6" data-path="vis.html"><a href="vis.html#treemap"><i class="fa fa-check"></i><b>8.6</b> Treemap</a></li>
+<li class="chapter" data-level="8.7" data-path="vis.html"><a href="vis.html#-2"><i class="fa fa-check"></i><b>8.7</b> 參考文件與資源</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html"><i class="fa fa-check"></i><b>9</b> 互動式資料呈現</a><ul>
+<li class="chapter" data-level="9.1" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html#ggvis"><i class="fa fa-check"></i><b>9.1</b> ggvis</a></li>
+<li class="chapter" data-level="9.2" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html#googlevis"><i class="fa fa-check"></i><b>9.2</b> googleVis</a></li>
+<li class="chapter" data-level="9.3" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html#plot.ly"><i class="fa fa-check"></i><b>9.3</b> Plot.ly</a></li>
+<li class="chapter" data-level="9.4" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html#shiny"><i class="fa fa-check"></i><b>9.4</b> Shiny簡介</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="datamining.html"><a href="datamining.html"><i class="fa fa-check"></i><b>10</b> 資料探勘</a><ul>
+<li class="chapter" data-level="10.1" data-path="datamining.html"><a href="datamining.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 什麼是資料探勘</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="big.html"><a href="big.html"><i class="fa fa-check"></i><b>11</b> 從小數據到大數據分析</a><ul>
+<li class="chapter" data-level="11.1" data-path="big.html"><a href="big.html#r-hadoop"><i class="fa fa-check"></i><b>11.1</b> R + Hadoop</a></li>
+<li class="chapter" data-level="11.2" data-path="big.html"><a href="big.html#rhadoop-cloudera"><i class="fa fa-check"></i><b>11.2</b> RHadoop安裝測試流程 (Cloudera)</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="big.html"><a href="big.html#section-11.2.1"><i class="fa fa-check"></i><b>11.2.1</b> 系統/軟體版本資訊</a></li>
+<li class="chapter" data-level="11.2.2" data-path="eda.html"><a href="eda.html#-1"><i class="fa fa-check"></i><b>11.2.2</b> 參考資料</a></li>
+<li class="chapter" data-level="11.2.3" data-path="big.html"><a href="big.html#section-11.2.3"><i class="fa fa-check"></i><b>11.2.3</b> 安裝步驟</a></li>
+<li class="chapter" data-level="11.2.4" data-path="big.html"><a href="big.html#section-11.2.4"><i class="fa fa-check"></i><b>11.2.4</b> 測試前，先解決權限問題</a></li>
+<li class="chapter" data-level="11.2.5" data-path="big.html"><a href="big.html#section-11.2.5"><i class="fa fa-check"></i><b>11.2.5</b> 測試</a></li>
+<li class="chapter" data-level="11.2.6" data-path="big.html"><a href="big.html#rstudio-server"><i class="fa fa-check"></i><b>11.2.6</b> 安裝RStudio Server</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="big.html"><a href="big.html#rhadoop-mapreduce-easy-word-count"><i class="fa fa-check"></i><b>11.3</b> RHadoop MapReduce: easy word count</a></li>
+<li class="chapter" data-level="11.4" data-path="big.html"><a href="big.html#r-spark"><i class="fa fa-check"></i><b>11.4</b> R + Spark</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="install.html"><a href="install.html"><i class="fa fa-check"></i><b>12</b> 軟體安裝介紹</a><ul>
+<li class="chapter" data-level="12.1" data-path="intro.html"><a href="intro.html#r"><i class="fa fa-check"></i><b>12.1</b> R安裝</a></li>
+<li class="chapter" data-level="12.2" data-path="install.html"><a href="install.html#rstudio"><i class="fa fa-check"></i><b>12.2</b> RStudio安裝</a></li>
+<li class="chapter" data-level="12.3" data-path="install.html"><a href="install.html#rstudio"><i class="fa fa-check"></i><b>12.3</b> RStudio使用簡介</a><ul>
+<li class="chapter" data-level="12.3.1" data-path="install.html"><a href="install.html#section-12.3.1"><i class="fa fa-check"></i><b>12.3.1</b> 專案</a></li>
+<li class="chapter" data-level="12.3.2" data-path="install.html"><a href="install.html#rstudio"><i class="fa fa-check"></i><b>12.3.2</b> RStudio介面</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i>作者資訊</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">資料科學與R語言</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">1</span> R語言101</h1>
+<p>本章節介紹學習R語言的基本知識，包括基本指令操作、運算子介紹等。</p>
+<div id="r" class="section level2">
+<h2><span class="header-section-number">1.1</span> 什麼是R語言</h2>
+<p><a href="http://www.r-project.org/" target="_blank">R語言</a>是一種自由軟體程式語言，主要用於資料分析與統計運算，2000年時終於發表R 1.0.0，有關R語言的發展歷史可參考<a href="https://zh.wikipedia.org/wiki/R%E8%AF%AD%E8%A8%80" target="_blank">維基百科</a>。基本的R軟體已經內建多種統計及分析功能，其餘功能可以透過安裝<strong>套件（Packages）</strong>加載，眾多的套件使R的使用者可以【站在巨人的肩膀上(Standing on the shoulders of giants (Hal R. Varian, Google))】做資料分析，截至2017年1月為止，R軟體可另外安裝的套件數目共有10,000個以上 (<a href="https://www.rstudio.com/rviews/2017/01/06/10000-cran-packages/" target="_blank">R Studio報導</a>)。常用的套件清單可參考各項網路資訊，如<a href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages" target="_blank">R Studio的整理：Quick list of useful R packages</a></p>
+<p>安裝套件Package的方法如下：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;套件名稱&quot;</span>)</code></pre></div>
+<p>值得注意的是，套件名稱需要加上雙引號，舉例來說，若要安裝<code>ggplot2</code>套件，則要在R的Console視窗內輸入：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
+<p>若要載入<strong>已安裝</strong>的套件，則輸入<code>library(套件名稱)</code>，範例：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>載入已安裝的套件時，可以<strong>不用</strong>在套件名稱前後加雙引號，但也可以加 <a href="http://stackoverflow.com/questions/25210455/how-can-library-accept-both-quoted-and-unquoted-strings" target="_blank">參考資料</a>。</p>
+</div>
+<div id="section-1.2" class="section level2">
+<h2><span class="header-section-number">1.2</span> 函數使用</h2>
+<p>在R中有許多內建函數，安裝套件後各套件也會提供各式各樣寫好的函數，函數使用方式為<code>函數名稱(參數1,參數2,....)</code>，以計算平均數為例，可使用<code>mean()</code>函數，範例如下:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)) ##計算1~6的平均數</code></pre></div>
+<pre><code>## [1] 3.5</code></pre>
+<p>若想知道各函數所需參數，可使用<code>?函數名稱</code>觀看函數作者所撰寫的說明文件</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?mean</code></pre></div>
+<p>除非有指定參數名稱，函數的參數設定有順序性，如序列產生函數<code>seq()</code>，參數順序為<code>from, to, by</code>，代表序列起點、序列終點，以及相隔單位。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">by=</span><span class="dv">2</span>)<span class="co">#1~9，每隔2產生一數字</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">2</span>)<span class="co">#按照順序輸入參數，可省去參數名稱</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">seq</span>(<span class="dt">by=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">from=</span><span class="dv">1</span>)<span class="co">#若不想照順序輸入參數，需要指定參數名稱</span></code></pre></div>
+<pre><code>## [1] 1 3 5 7 9</code></pre>
+</div>
+<div id="section-1.3" class="section level2">
+<h2><span class="header-section-number">1.3</span> 變數設定</h2>
+<p>在開始深入學習R語言之前，首要任務是學習最基本的R程式碼：<strong>變數設定</strong>，在R語言中，主要使用<code>&lt;-</code>設定變數，設定方法為：<strong>變數名稱</strong><code>&lt;-</code><strong>變數內容(值)</strong>，雖然<strong>變數名稱</strong>可依箭頭方向放置於左側<code>&lt;-</code>或右側<code>-&gt;</code>，但為方便閱讀，<strong>變數名稱</strong>多放置於左側。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a&lt;-<span class="dv">1</span> 
+<span class="dv">2</span>-&gt;b
+a</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b</code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>R語言也接受使用<code>=</code>設定變數，此時<strong>變數名稱</strong>必須在左側，如：<strong>變數名稱</strong><code>=</code><strong>變數內容</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">c=<span class="dv">1</span> 
+c</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>除了<strong>變數設定</strong>外，<code>str()</code>函數也為常用基本函數，<code>str()</code>用在檢查與總覽各類變數型態。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">d&lt;-<span class="dv">3</span>
+<span class="kw">str</span>(d)</code></pre></div>
+<pre><code>##  num 3</code></pre>
+<p>變數的命名有以下規則:</p>
+<ul>
+<li>不可使用保留字，如break, else, FALSE, for, function, if, Inf, NA, NaN, next, repeat, return, TRUE, while等</li>
+<li>開頭只能是英文字，或 <code>.</code></li>
+<li>大小寫敏感</li>
+</ul>
+</div>
+<div id="section-1.4" class="section level2">
+<h2><span class="header-section-number">1.4</span> 執行視窗</h2>
+<p>R是可直譯的語言，也就是說，可以在執行視窗(Console)直接打程式碼，在視窗出現<code>&gt;</code>時，表示可輸入指令，若視窗出現<code>+</code>時，表示前面的程式碼還沒打完，必須鍵入完整的程式碼讓R執行。</p>
+</div>
+<div id="DataType" class="section level2">
+<h2><span class="header-section-number">1.5</span> 資料型態</h2>
+<p>在R語言中，常用的資料型態包括<strong>數值 (numeric)</strong>、<strong>字串 (character)</strong>、<strong>布林變數 (logic)</strong>以及<strong>日期 (Date)</strong>等。</p>
+<div id="-numeric" class="section level3">
+<h3><span class="header-section-number">1.5.1</span> 數值 numeric</h3>
+<p>數值包括整數（沒有小數點）與浮點數（有小數點）的數值</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1&lt;-<span class="dv">100</span> 
+num2&lt;-<span class="fl">1000.001</span></code></pre></div>
+<p>值得注意的是，若數值長度超過 <code>2^53</code>，必須導入<code>bit64</code> package <span class="citation">(Oehlschlägel <a href="#ref-R-bit64">2015</a>)</span>，將數值長度上限提高為<code>2^63</code>，才能表示完整數值</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="dv">2</span>^<span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>) </code></pre></div>
+<pre><code>## [1] 9007199254740992</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="dv">2</span>^<span class="dv">53+1</span>, <span class="dt">digits=</span><span class="dv">20</span>) <span class="co"># +1後，數值仍與2^53相同</span></code></pre></div>
+<pre><code>## [1] 9007199254740992</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bit64) <span class="co"># 導入bit64 package</span>
+<span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)^<span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>)</code></pre></div>
+<pre><code>## integer64
+## [1] 9007199254740992</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)^<span class="dv">53+1</span>, <span class="dt">digits=</span><span class="dv">20</span>)<span class="co"># 導入bit64後，可得正確答案</span></code></pre></div>
+<pre><code>## integer64
+## [1] 9007199254740993</code></pre>
+</div>
+<div id="-character" class="section level3">
+<h3><span class="header-section-number">1.5.2</span> 字串 character</h3>
+<p>用雙引號<code>&quot;</code>框起的文字會被儲存為字串格式，若在數字前後加上雙引號，數字也會被儲存為文字形式，無法進行數值的加減乘除等運算。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">char1&lt;-<span class="st">&quot;abcTest&quot;</span> 
+char2&lt;-<span class="st">&quot;100&quot;</span>
+char3&lt;-<span class="st">&quot;200&quot;</span>
+<span class="co">#char2+char3 #會輸出Error message: non-numeric argument to binary operator</span></code></pre></div>
+</div>
+<div id="-logic" class="section level3">
+<h3><span class="header-section-number">1.5.3</span> 布林變數 logic</h3>
+<p>用於邏輯判斷，可使用大寫<strong>TRUE</strong>或<strong>T</strong>代表<strong>真</strong>，大寫<strong>FALSE</strong>或<strong>F</strong>代表假。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">boolT&lt;-<span class="ot">TRUE</span>
+boolT1&lt;-T
+boolF&lt;-<span class="ot">FALSE</span>
+boolF1&lt;-F</code></pre></div>
+</div>
+<div id="-date" class="section level3">
+<h3><span class="header-section-number">1.5.4</span> 日期 (Date)</h3>
+<p>用於表示日期，於資料分析中常用，使用<code>Sys.Date()</code>指令可得系統日期。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dateBook&lt;-<span class="kw">Sys.Date</span>()
+dateBook</code></pre></div>
+<pre><code>## [1] &quot;2017-03-20&quot;</code></pre>
+<p>日期與字串的相關轉換操作可考慮使用簡單易懂的<code>lubridate</code><span class="citation">(Grolemund, Spinu, and Wickham <a href="#ref-R-lubridate">2016</a>)</span> package，如果想要將<code>年/月/日</code>格式的文字轉換為日期物件，可使用<code>ymd()</code>函數（y表年year，m表月month，d表日day），如果想要將<code>月/日/年</code>格式的文字轉換為日期物件，則使用<code>mdy()</code>函數，以此類推。</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+<span class="kw">ymd</span>(<span class="st">&#39;2012/3/3&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2012-03-03&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mdy</span>(<span class="st">&#39;3/3/2012&#39;</span>)</code></pre></div>
+<pre><code>## [1] &quot;2012-03-03&quot;</code></pre>
+<p>其他使用方式可參考 <a href="http://blog.yhat.com/static/pdf/R_date_cheat_sheet.pdf" target="_blank">The Yhat Blog</a>。</p>
+</div>
+</div>
+<div id="section-1.6" class="section level2">
+<h2><span class="header-section-number">1.6</span> 基本運算子</h2>
+<div id="section-1.6.1" class="section level3">
+<h3><span class="header-section-number">1.6.1</span> 數學基本運算</h3>
+<p>在R中，數學運算與其他程式語言相同</p>
+<ul>
+<li>加 <code>+</code></li>
+<li>減 <code>-</code></li>
+<li>乘 <code>*</code></li>
+<li>除 <code>/</code></li>
+<li>餘數 <code>%%</code></li>
+<li>次方 <code>^</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1&lt;-<span class="dv">1</span>
+num2&lt;-<span class="dv">100</span>
+num1+num2</code></pre></div>
+<pre><code>## [1] 101</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1-num2</code></pre></div>
+<pre><code>## [1] -99</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1*num2</code></pre></div>
+<pre><code>## [1] 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1/num2</code></pre></div>
+<pre><code>## [1] 0.01</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">100</span>%%<span class="dv">3</span> ##100除以3後所得餘數</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">2</span>^<span class="dv">3</span> ##2的3次方</code></pre></div>
+<pre><code>## [1] 8</code></pre>
+</div>
+<div id="section-1.6.2" class="section level3">
+<h3><span class="header-section-number">1.6.2</span> 進階數學函數</h3>
+<ul>
+<li>四捨五入 <code>round()</code></li>
+<li>無條件捨去 <code>floor()</code></li>
+<li>無條件進位 <code>ceiling()</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1&lt;-<span class="fl">1.568</span>
+num2&lt;-<span class="fl">2.121</span>
+<span class="kw">round</span>(num1,<span class="dt">digits =</span> <span class="dv">2</span>) <span class="co">#四捨五入至小數點第二位</span></code></pre></div>
+<pre><code>## [1] 1.6</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(num2,<span class="dt">digits =</span> <span class="dv">1</span>) <span class="co">#四捨五入至小數點第一位</span></code></pre></div>
+<pre><code>## [1] 2.1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">floor</span>(num1) ##1.568</code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ceiling</span>(num2) ##2.121</code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="section-1.6.3" class="section level3">
+<h3><span class="header-section-number">1.6.3</span> 邏輯運算</h3>
+<p>常用之邏輯判斷也可在R中直接使用</p>
+<ul>
+<li>大於 <code>&gt;</code></li>
+<li>小於 <code>&lt;</code></li>
+<li>等於 <code>==</code>，為了不與變數設定混淆，判斷兩變數是否相等，要用<strong>雙等號</strong></li>
+<li>大於等於 <code>&gt;=</code></li>
+<li>小於等於 <code>&lt;=</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1&lt;-<span class="dv">1</span>
+num2&lt;-<span class="dv">100</span>
+num1&gt;num2</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">num1&lt;num2</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>文字字串也可比較大小</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">char1&lt;-<span class="st">&quot;abcTest&quot;</span> 
+char2&lt;-<span class="st">&quot;defTest&quot;</span>
+char1&gt;char2</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>邏輯混合判斷，和JAVA等語言不同的是，在R中使用<strong>單符號</strong>即可表示且<code>&amp;</code>和或<code>|</code></p>
+<ul>
+<li>且 <code>&amp;</code></li>
+<li>或 <code>|</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> &amp;<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">TRUE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="ot">TRUE</span> |<span class="st"> </span><span class="ot">FALSE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>反向布林變數<code>!</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="ot">TRUE</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">!<span class="ot">FALSE</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+</div>
+<div id="section-1.7" class="section level2">
+<h2><span class="header-section-number">1.7</span> 錯誤訊息</h2>
+<ul>
+<li>Message：有可能的錯誤通知，程式會繼續執行</li>
+<li>Warning：有錯誤，但是不會影響太多，程式會繼續執行</li>
+<li>Error：有錯，而且無法繼續執行程式</li>
+<li>Condition：可能會發生的情況</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">log</span>(-<span class="dv">1</span>)</code></pre></div>
+<pre><code>## Warning in log(-1): NaNs produced</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mena</span>(<span class="ot">NA</span>)</code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;mena&quot;</code></pre>
+<p>錯誤訊息範例1:</p>
+<pre><code># Error: could not find function &quot;fetch_NBAPlayerStatistics&quot;
+# 找不到&quot;fetch_NBAPlayerStatistics&quot; function</code></pre>
+<p>可能原因：沒安裝或沒讀入SportsAnalytics package</p>
+<p>錯誤訊息範例2:</p>
+<pre><code># Error in library(knitr): there is no package called &#39;knitr&#39;
+# 找不到&quot;knitr&quot; package</code></pre>
+<p>可能原因：沒安裝knitr package</p>
+</div>
+<div id="help" class="section level2">
+<h2><span class="header-section-number">1.8</span> Help</h2>
+<p>R語言與套件均有完整的文件與範例可以參考，在R的執行視窗中，輸入<code>?函數名稱</code>或<code>?套件名稱</code>即可看到函數或套件的使用說明</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?ggplot2
+?ymd</code></pre></div>
+<p>除此之外，<a href="http://stackoverflow.com/" target="_blank">Stack Overflow</a>中也有許多問答，可直接在網站中搜尋關鍵字與錯誤訊息。</p>
+<p>如果找不到解答，發問時請附上可以重現錯誤的<strong>程式碼</strong>與<strong>資料</strong>，以及系統/套件的版本資訊，版本資訊可以透過執行下列程式碼取得：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
+<pre><code>## R version 3.3.2 (2016-10-31)
+## Platform: x86_64-apple-darwin13.4.0 (64-bit)
+## Running under: macOS Sierra 10.12.3
+## 
+## locale:
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] lubridate_1.6.0 bit64_0.9-5     bit_1.1-12     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.9     bookdown_0.3.9  digest_0.6.12   rprojroot_1.2  
+##  [5] backports_1.0.5 magrittr_1.5    evaluate_0.10   highr_0.6      
+##  [9] stringi_1.1.2   rstudioapi_0.6  rmarkdown_1.3   tools_3.3.2    
+## [13] stringr_1.1.0   yaml_2.1.14     htmltools_0.3.5 knitr_1.15.1</code></pre>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-R-bit64">
+<p>Oehlschlägel, Jens. 2015. <em>Bit64: A S3 Class for Vectors of 64bit Integers</em>. <a href="https://CRAN.R-project.org/package=bit64" class="uri">https://CRAN.R-project.org/package=bit64</a>.</p>
+</div>
+<div id="ref-R-lubridate">
+<p>Grolemund, Garrett, Vitalie Spinu, and Hadley Wickham. 2016. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate" class="uri">https://CRAN.R-project.org/package=lubridate</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="RDataStructure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "Microsoft JhengHei",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yijutseng/DataAnalyticsWithRBook/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"download": ["DataAnalyticsWithR.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
