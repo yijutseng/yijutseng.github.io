@@ -24,7 +24,7 @@
 <meta name="author" content="曾意儒 Yi-Ju Tseng" />
 
 
-<meta name="date" content="2020-04-07" />
+<meta name="date" content="2020-05-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -362,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">資料科學與R語言</h1>
 <p class="author"><em>曾意儒 Yi-Ju Tseng</em></p>
-<p class="date"><em>2020-04-07</em></p>
+<p class="date"><em>2020-05-25</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1></h1>
@@ -377,7 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
 <pre><code>## R version 3.6.1 (2019-07-05)
 ## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Catalina 10.15.3
+## Running under: macOS Catalina 10.15.4
 ## 
 ## Matrix products: default
 ## BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
@@ -396,63 +396,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [8] base     
 ## 
 ## other attached packages:
-##  [1] mlbench_2.1-1         curl_4.2              treemap_2.4-2        
-##  [4] purrr_0.3.3           caret_6.0-84          lattice_0.20-38      
-##  [7] MASS_7.3-51.4         arulesViz_1.3-3       arules_1.6-4         
-## [10] Matrix_1.2-17         fields_9.9            maps_3.3.0           
-## [13] spam_2.3-0            dotCall64_1.0-0       rpart.plot_3.0.8     
-## [16] rpart_4.1-15          googleVis_0.6.4       ggvis_0.4.4          
-## [19] plotly_4.9.0          shiny_1.4.0.2         treemapify_2.5.3     
-## [22] WDI_2.6.0             choroplethrMaps_1.0.1 choroplethr_3.6.3    
-## [25] acs_2.1.4             ggmap_3.0.0           maptools_0.9-8       
-## [28] rgeos_0.5-2           rgdal_1.4-6           sp_1.3-1             
-## [31] rvest_0.3.5           xml2_1.2.2            Rfacebook_0.6.15     
-## [34] httpuv_1.5.2          rjson_0.2.20          XML_3.98-1.20        
-## [37] jsonlite_1.6          httr_1.4.1            readxl_1.3.1         
-## [40] readr_1.3.1           SportsAnalytics_0.2   reshape2_1.4.3       
-## [43] stringr_1.4.0         data.table_1.12.6     RCurl_1.95-4.12      
-## [46] bitops_1.0-6          rmarkdown_1.16        knitr_1.25           
-## [49] bookdown_0.14         bit64_0.9-7           bit_1.1-14           
-## [52] lubridate_1.7.4       dplyr_0.8.3           ggplot2_3.2.1        
+##  [1] mlbench_2.1-1         tidyr_1.0.0           curl_4.2             
+##  [4] treemap_2.4-2         purrr_0.3.3           caret_6.0-84         
+##  [7] lattice_0.20-38       MASS_7.3-51.4         arulesViz_1.3-3      
+## [10] arules_1.6-4          Matrix_1.2-17         fields_9.9           
+## [13] maps_3.3.0            spam_2.3-0            dotCall64_1.0-0      
+## [16] rpart.plot_3.0.8      rpart_4.1-15          googleVis_0.6.4      
+## [19] ggvis_0.4.4           plotly_4.9.0          shiny_1.4.0.2        
+## [22] treemapify_2.5.3      WDI_2.6.0             choroplethrMaps_1.0.1
+## [25] choroplethr_3.6.3     acs_2.1.4             ggmap_3.0.0          
+## [28] maptools_0.9-8        rgeos_0.5-2           rgdal_1.4-6          
+## [31] sp_1.3-1              rvest_0.3.5           xml2_1.2.2           
+## [34] Rfacebook_0.6.15      httpuv_1.5.2          rjson_0.2.20         
+## [37] XML_3.98-1.20         jsonlite_1.6.1        httr_1.4.1           
+## [40] readxl_1.3.1          readr_1.3.1           SportsAnalytics_0.2  
+## [43] reshape2_1.4.3        stringr_1.4.0         data.table_1.12.6    
+## [46] RCurl_1.95-4.12       bitops_1.0-6          rmarkdown_2.1        
+## [49] knitr_1.28            bookdown_0.14         bit64_0.9-7          
+## [52] bit_1.1-14            lubridate_1.7.4       dplyr_0.8.5          
+## [55] ggplot2_3.2.1        
 ## 
 ## loaded via a namespace (and not attached):
 ##   [1] uuid_0.1-2           backports_1.1.5      Hmisc_4.2-0         
-##   [4] servr_0.15           igraph_1.2.4.1       plyr_1.8.4          
+##   [4] servr_0.16           igraph_1.2.4.1       plyr_1.8.4          
 ##   [7] lazyeval_0.2.2       splines_3.6.1        crosstalk_1.0.0     
-##  [10] gridBase_0.4-7       digest_0.6.21        foreach_1.4.7       
+##  [10] gridBase_0.4-7       digest_0.6.25        foreach_1.4.7       
 ##  [13] htmltools_0.4.0      viridis_0.5.1        fansi_0.4.0         
 ##  [16] gdata_2.18.0         magrittr_1.5         checkmate_1.9.4     
-##  [19] cluster_2.1.0        gclus_1.3.2          recipes_0.1.7       
+##  [19] cluster_2.1.0        gclus_1.3.2          recipes_0.1.12      
 ##  [22] ggfittext_0.8.1      gower_0.2.1          jpeg_0.1-8          
-##  [25] colorspace_1.4-1     rappdirs_0.3.1       xfun_0.10           
+##  [25] colorspace_1.4-1     rappdirs_0.3.1       xfun_0.13           
 ##  [28] crayon_1.3.4         zoo_1.8-6            survival_2.44-1.1   
-##  [31] tigris_0.8.2         iterators_1.0.12     glue_1.3.1          
+##  [31] tigris_0.8.2         iterators_1.0.12     glue_1.4.1          
 ##  [34] registry_0.5-1       gtable_0.3.0         ipred_0.9-9         
-##  [37] scales_1.0.0         DBI_1.0.0            Rcpp_1.0.2          
+##  [37] scales_1.1.1         DBI_1.0.0            Rcpp_1.0.4.6        
 ##  [40] viridisLite_0.3.0    xtable_1.8-4         htmlTable_1.13.2    
 ##  [43] units_0.6-5          mapproj_1.2.6        foreign_0.8-71      
 ##  [46] Formula_1.2-3        stats4_3.6.1         lava_1.6.6          
 ##  [49] prodlim_2018.04.18   DT_0.9               vcd_1.4-4           
 ##  [52] htmlwidgets_1.5.1    gplots_3.0.1.1       RColorBrewer_1.1-2  
-##  [55] acepack_1.4.1        pkgconfig_2.0.3      nnet_7.3-12         
-##  [58] utf8_1.1.4           RJSONIO_1.3-1.3      labeling_0.3        
-##  [61] tidyselect_0.2.5     rlang_0.4.4          later_1.0.0         
-##  [64] visNetwork_2.0.8     munsell_0.5.0        cellranger_1.1.0    
-##  [67] tools_3.6.1          cli_1.1.0            generics_0.0.2      
-##  [70] evaluate_0.14        fastmap_1.0.1        yaml_2.2.0          
-##  [73] ModelMetrics_1.2.2   caTools_1.17.1.2     RgoogleMaps_1.4.4   
-##  [76] dendextend_1.12.0    packrat_0.5.0        nlme_3.1-140        
-##  [79] mime_0.7             compiler_3.6.1       rstudioapi_0.10     
-##  [82] png_0.1-7            e1071_1.7-2          tibble_2.1.3        
-##  [85] stringi_1.4.3        highr_0.8            classInt_0.4-2      
-##  [88] vctrs_0.2.3          pillar_1.4.2         lifecycle_0.1.0     
-##  [91] lmtest_0.9-37        seriation_1.2-8      R6_2.4.0            
-##  [94] latticeExtra_0.6-28  promises_1.1.0       TSP_1.1-7           
-##  [97] KernSmooth_2.23-15   gridExtra_2.3        codetools_0.2-16    
-## [100] gtools_3.8.1         assertthat_0.2.1     withr_2.1.2         
-## [103] hms_0.5.3            timeDate_3043.102    tidyr_1.0.0         
-## [106] class_7.3-15         Cairo_1.5-10         sf_0.8-0            
-## [109] scatterplot3d_0.3-41 base64enc_0.1-3</code></pre>
+##  [55] acepack_1.4.1        ellipsis_0.3.0       farver_2.0.3        
+##  [58] pkgconfig_2.0.3      nnet_7.3-12          utf8_1.1.4          
+##  [61] RJSONIO_1.3-1.3      labeling_0.3         tidyselect_1.0.0    
+##  [64] rlang_0.4.6          later_1.0.0          visNetwork_2.0.8    
+##  [67] munsell_0.5.0        cellranger_1.1.0     tools_3.6.1         
+##  [70] cli_2.0.2            generics_0.0.2       evaluate_0.14       
+##  [73] fastmap_1.0.1        yaml_2.2.1           ModelMetrics_1.2.2  
+##  [76] caTools_1.17.1.2     RgoogleMaps_1.4.4    dendextend_1.12.0   
+##  [79] packrat_0.5.0        nlme_3.1-140         mime_0.9            
+##  [82] compiler_3.6.1       rstudioapi_0.11      png_0.1-7           
+##  [85] e1071_1.7-2          tibble_3.0.1         stringi_1.4.6       
+##  [88] highr_0.8            classInt_0.4-2       vctrs_0.3.0         
+##  [91] pillar_1.4.4         lifecycle_0.2.0      lmtest_0.9-37       
+##  [94] seriation_1.2-8      R6_2.4.1             latticeExtra_0.6-28 
+##  [97] promises_1.1.0       TSP_1.1-7            KernSmooth_2.23-15  
+## [100] gridExtra_2.3        codetools_0.2-16     gtools_3.8.1        
+## [103] assertthat_0.2.1     withr_2.1.2          hms_0.5.3           
+## [106] timeDate_3043.102    class_7.3-15         Cairo_1.5-10        
+## [109] sf_0.8-0             scatterplot3d_0.3-41 base64enc_0.1-3</code></pre>
 <p>本書使用套件版本：</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">pkgInfo&lt;-<span class="kw">lapply</span>(pkg, packageDescription, <span class="dt">fields =</span> <span class="kw">c</span>(<span class="st">&quot;Package&quot;</span>, <span class="st">&quot;Version&quot;</span>))</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">data.frame</span>(<span class="dt">Package=</span><span class="kw">sapply</span>(pkgInfo, <span class="st">`</span><span class="dt">[[</span><span class="st">`</span>, <span class="dv">1</span>),</a>
@@ -471,7 +472,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td align="left">dplyr</td>
-<td align="left">0.8.3</td>
+<td align="left">0.8.5</td>
 </tr>
 <tr class="odd">
 <td align="left">lubridate</td>
@@ -487,11 +488,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td align="left">knitr</td>
-<td align="left">1.25</td>
+<td align="left">1.28</td>
 </tr>
 <tr class="odd">
 <td align="left">rmarkdown</td>
-<td align="left">1.16</td>
+<td align="left">2.1</td>
 </tr>
 <tr class="even">
 <td align="left">RCurl</td>
@@ -527,7 +528,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td align="left">jsonlite</td>
-<td align="left">1.6</td>
+<td align="left">1.6.1</td>
 </tr>
 <tr class="odd">
 <td align="left">XML</td>
@@ -636,6 +637,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td align="left">xml2</td>
 <td align="left">1.2.2</td>
+</tr>
+<tr class="even">
+<td align="left">tidyr</td>
+<td align="left">1.0.0</td>
 </tr>
 </tbody>
 </table>

@@ -24,7 +24,7 @@
 <meta name="author" content="曾意儒 Yi-Ju Tseng" />
 
 
-<meta name="date" content="2020-04-07" />
+<meta name="date" content="2020-05-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1578,17 +1578,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4     5   4    18     313 11.5   62
 ## 5     5   5    NA      NA 14.3   56
 ## 6     5   6    28      NA 14.9   66</code></pre>
+<p>tidyverse套件組的tidyr <span class="citation">(Wickham and Henry <a href="#ref-R-tidyr">2019</a>)</span> package，也提供完整的轉換功能，舉例如下</p>
+<ul>
+<li>寬表轉長表 <code>gather(資料框/寬表,key=&quot;主鍵欄位名稱&quot;,value=&quot;數值欄位名稱&quot;,要轉換的資料1,要轉換的資料2,...)</code></li>
+<li>長表轉寬表 <code>spread(資料框/長表,key=&quot;要展開的欄位名稱&quot;,value=&quot;數值欄位名稱&quot;)</code></li>
+</ul>
+<p>同上，以<code>airquality</code>資料框為例，原來的<code>airquality</code>資料框中，有Ozone, Solar.R, Wind, Temp, Month, Day等六個欄位 (Column)，屬於寬表</p>
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1"><span class="kw">head</span>(airquality,<span class="dv">3</span>)</a></code></pre></div>
+<pre><code>##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3</code></pre>
+<p>以下範例將保留Month和Day兩個欄位，將其他欄位的名稱整合至Type欄位，數值整合至Value欄位，寬表轉長表範例如下:</p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb473-2" data-line-number="2">airqualityL&lt;-<span class="kw">gather</span>(airquality,</a>
+<a class="sourceLine" id="cb473-3" data-line-number="3">                    <span class="dt">key=</span>Type,<span class="dt">value=</span>Value,</a>
+<a class="sourceLine" id="cb473-4" data-line-number="4">                    Ozone,Solar.R,Wind,Temp) <span class="co">##欄位Ozone,Solar.R,Wind,Temp轉成單一欄位</span></a></code></pre></div>
+<p>轉換過的長表<code>airqualityL</code>資料框中，剩下Month, Day, Type, Value等四個欄位 (Column)，屬於長表，以下範例Type欄位的值轉換為新欄位，並將Value欄位填回新增的欄位，長表轉寬表範例如下:</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb474-1" data-line-number="1"><span class="co">#欄位保留&quot;Month&quot;,&quot;Day&quot;外，其他欄位由variable定義</span></a>
+<a class="sourceLine" id="cb474-2" data-line-number="2">airqualityW&lt;-<span class="kw">spread</span>(airqualityL, <span class="dt">key=</span>Type,<span class="dt">value=</span>Value) </a>
+<a class="sourceLine" id="cb474-3" data-line-number="3"><span class="kw">head</span>(airqualityW)</a></code></pre></div>
+<pre><code>##   Month Day Ozone Solar.R Temp Wind
+## 1     5   1    41     190   67  7.4
+## 2     5   2    36     118   72  8.0
+## 3     5   3    12     149   74 12.6
+## 4     5   4    18     313   62 11.5
+## 5     5   5    NA      NA   56 14.3
+## 6     5   6    28      NA   66 14.9</code></pre>
 </div>
 <div id="遺漏值處理" class="section level2">
 <h2><span class="header-section-number">6.9</span> 遺漏值處理</h2>
 <p>遺漏值(Missing Value)常常出現在真實資料內，在數值運算時常會有問題，最簡單的方法是將有缺值的資料移除，如資料為向量，可使用<code>is.na()</code>來判斷資料是否為空值<code>NA</code>，若為真<code>TRUE</code>，則將資料移除。</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb471-1" data-line-number="1">naVec&lt;-<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="ot">NA</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>)</a>
-<a class="sourceLine" id="cb471-2" data-line-number="2"><span class="kw">is.na</span>(naVec)</a></code></pre></div>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb476-1" data-line-number="1">naVec&lt;-<span class="kw">c</span>(<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="ot">NA</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>)</a>
+<a class="sourceLine" id="cb476-2" data-line-number="2"><span class="kw">is.na</span>(naVec)</a></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE FALSE FALSE</code></pre>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb473-1" data-line-number="1">naVec[<span class="op">!</span><span class="kw">is.na</span>(naVec)] <span class="co">##保留所有在is.na()檢查回傳FALSE的元素</span></a></code></pre></div>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb478-1" data-line-number="1">naVec[<span class="op">!</span><span class="kw">is.na</span>(naVec)] <span class="co">##保留所有在is.na()檢查回傳FALSE的元素</span></a></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;d&quot; &quot;e&quot;</code></pre>
 <p>若資料型態為資料框，可使用<code>complete.cases</code>來選出完整的資料列，如果資料列是完整的，則會回傳真TRUE</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb475-1" data-line-number="1"><span class="kw">head</span>(airquality)</a></code></pre></div>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb480-1" data-line-number="1"><span class="kw">head</span>(airquality)</a></code></pre></div>
 <pre><code>##   Ozone Solar.R Wind Temp Month Day
 ## 1    41     190  7.4   67     5   1
 ## 2    36     118  8.0   72     5   2
@@ -1596,7 +1623,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4    18     313 11.5   62     5   4
 ## 5    NA      NA 14.3   56     5   5
 ## 6    28      NA 14.9   66     5   6</code></pre>
-<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb477-1" data-line-number="1"><span class="kw">complete.cases</span>(airquality) </a></code></pre></div>
+<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1"><span class="kw">complete.cases</span>(airquality) </a></code></pre></div>
 <pre><code>##   [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
 ##  [13]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ##  [25] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
@@ -1610,7 +1637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [121]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [133]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [145]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE</code></pre>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb479-1" data-line-number="1"><span class="kw">head</span>(airquality[<span class="kw">complete.cases</span>(airquality),]) <span class="co">##保留所有在complete.cases()檢查回傳TRUE的元素</span></a></code></pre></div>
+<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">head</span>(airquality[<span class="kw">complete.cases</span>(airquality),]) <span class="co">##保留所有在complete.cases()檢查回傳TRUE的元素</span></a></code></pre></div>
 <pre><code>##   Ozone Solar.R Wind Temp Month Day
 ## 1    41     190  7.4   67     5   1
 ## 2    36     118  8.0   72     5   2
@@ -1626,13 +1653,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="載入資料" class="section level3">
 <h3><span class="header-section-number">6.10.1</span> 載入資料</h3>
 <p>首先用<code>library()</code>函數將<code>SportsAnalytics</code>套件載入 (若尚未安裝此套件者，必須先安裝套件，可參考Chapter <a href="intro.html#intro">1</a>)，並利用套件內提供的<code>fetch_NBAPlayerStatistics()</code>函數，將對應年份之資料取出。</p>
-<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb481-1" data-line-number="1"><span class="kw">library</span>(SportsAnalytics)</a>
-<a class="sourceLine" id="cb481-2" data-line-number="2">NBA1516&lt;-<span class="kw">fetch_NBAPlayerStatistics</span>(<span class="st">&quot;15-16&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1"><span class="kw">library</span>(SportsAnalytics)</a>
+<a class="sourceLine" id="cb486-2" data-line-number="2">NBA1516&lt;-<span class="kw">fetch_NBAPlayerStatistics</span>(<span class="st">&quot;15-16&quot;</span>)</a></code></pre></div>
 </div>
 <div id="資料總覽" class="section level3">
 <h3><span class="header-section-number">6.10.2</span> 資料總覽</h3>
 <p>資料取出後，可用<code>str()</code>函數總覽<code>NBA1516</code>這個資料框的欄位與欄位類別</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb482-1" data-line-number="1"><span class="kw">str</span>(NBA1516)</a></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb487-1" data-line-number="1"><span class="kw">str</span>(NBA1516)</a></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    476 obs. of  25 variables:
 ##  $ League             : Factor w/ 1 level &quot;NBA&quot;: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ Name               : chr  &quot;Quincy Acy&quot; &quot;Jordan Adams&quot; &quot;Steven Adams&quot; &quot;Arron Afflalo&quot; ...
@@ -1664,7 +1691,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="資料預覽" class="section level3">
 <h3><span class="header-section-number">6.10.3</span> 資料預覽</h3>
 <p>如果想看資料框內容，可用<code>head()</code>和<code>tail()</code>快速瀏覽部分資料</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb484-1" data-line-number="1"><span class="kw">head</span>(NBA1516)</a></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb489-1" data-line-number="1"><span class="kw">head</span>(NBA1516)</a></code></pre></div>
 <pre><code>##   League          Name Team Position GamesPlayed TotalMinutesPlayed
 ## 1    NBA    Quincy Acy  SAC       SF          59                877
 ## 2    NBA  Jordan Adams  MEM       SG           2                 15
@@ -1704,8 +1731,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="資料排序後篩選" class="section level3">
 <h3><span class="header-section-number">6.10.4</span> 資料排序後篩選</h3>
 <p>觀察資料框的組成後，我們想要找出<strong>出場數</strong>最<strong>高</strong>的前五名選手的所有資料，此時可以利用<code>order()</code>函數先<strong>由大到小</strong>排序(<code>decreasing = T</code>)後，再用<code>[,]</code>取子集。</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb486-1" data-line-number="1">NBA1516Order&lt;-NBA1516[<span class="kw">order</span>(NBA1516<span class="op">$</span>GamesPlayed,<span class="dt">decreasing =</span> T),]</a>
-<a class="sourceLine" id="cb486-2" data-line-number="2">NBA1516Order[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="co">##逗號前方放1~5，表示取1~5列；逗號後方空白，表示要取所有欄位</span></a></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb491-1" data-line-number="1">NBA1516Order&lt;-NBA1516[<span class="kw">order</span>(NBA1516<span class="op">$</span>GamesPlayed,<span class="dt">decreasing =</span> T),]</a>
+<a class="sourceLine" id="cb491-2" data-line-number="2">NBA1516Order[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,] <span class="co">##逗號前方放1~5，表示取1~5列；逗號後方空白，表示要取所有欄位</span></a></code></pre></div>
 <pre><code>##     League            Name Team Position GamesPlayed TotalMinutesPlayed
 ## 11     NBA Al-farouq Aminu  POR       SF          82               2342
 ## 37     NBA     Will Barton  DEN       SG          82               2355
@@ -1737,8 +1764,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 62           0         0             0           12
 ## 118          1         0             0           39</code></pre>
 <p>如果我們想要出<strong>出場分鐘數</strong>最<strong>高</strong>的前十名選手的<strong>名字</strong>，一樣可以用<code>order()</code>函數先<strong>由大到小</strong>排序(<code>decreasing = T</code>)後，再用<code>[,]</code>取子集。</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb488-1" data-line-number="1">NBA1516OrderM&lt;-NBA1516[<span class="kw">order</span>(NBA1516<span class="op">$</span>TotalMinutesPlayed,<span class="dt">decreasing =</span> T),]</a>
-<a class="sourceLine" id="cb488-2" data-line-number="2">NBA1516OrderM[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] <span class="co">##逗號前方取1~10列；逗號後方放&quot;Name&quot;，表示取名稱為Name之欄位</span></a></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb493-1" data-line-number="1">NBA1516OrderM&lt;-NBA1516[<span class="kw">order</span>(NBA1516<span class="op">$</span>TotalMinutesPlayed,<span class="dt">decreasing =</span> T),]</a>
+<a class="sourceLine" id="cb493-2" data-line-number="2">NBA1516OrderM[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,<span class="st">&quot;Name&quot;</span>] <span class="co">##逗號前方取1~10列；逗號後方放&quot;Name&quot;，表示取名稱為Name之欄位</span></a></code></pre></div>
 <pre><code>##  [1] &quot;James Harden&quot;     &quot;Gordon Hayward&quot;   &quot;Kemba Walker&quot;     &quot;Trevor Ariza&quot;    
 ##  [5] &quot;Khris Middleton&quot;  &quot;Kyle Lowry&quot;       &quot;Marcus Morris&quot;    &quot;Andrew Wiggins&quot;  
 ##  [9] &quot;Paul George&quot;      &quot;Gi Antetokounmpo&quot;</code></pre>
@@ -1746,7 +1773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="欄位值篩選" class="section level3">
 <h3><span class="header-section-number">6.10.5</span> 欄位值篩選</h3>
 <p>除了排序取值外，也可用欄位條件搜尋，舉例來說，可以取出所有波士頓賽爾迪克隊的選手資料，使用<code>subset()</code>函數</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb490-1" data-line-number="1"><span class="kw">subset</span>(NBA1516,Team<span class="op">==</span><span class="st">&quot;BOS&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb495-1" data-line-number="1"><span class="kw">subset</span>(NBA1516,Team<span class="op">==</span><span class="st">&quot;BOS&quot;</span>)</a></code></pre></div>
 <pre><code>##     League            Name Team Position GamesPlayed TotalMinutesPlayed
 ## 60     NBA   Avery Bradley  BOS       PG          76               2536
 ## 89     NBA     Coty Clarke  BOS     &lt;NA&gt;           4                  8
@@ -1831,7 +1858,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="字串條件搜尋後篩選" class="section level3">
 <h3><span class="header-section-number">6.10.6</span> 字串條件搜尋後篩選</h3>
 <p>當然也可以結合<strong>字串搜尋</strong>函數<code>grepl()</code>，將所有名字裡有“James”的選手資料取出</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb492-1" data-line-number="1">NBA1516[<span class="kw">grepl</span>(<span class="st">&quot;James&quot;</span>,NBA1516<span class="op">$</span>Name),]</a></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb497-1" data-line-number="1">NBA1516[<span class="kw">grepl</span>(<span class="st">&quot;James&quot;</span>,NBA1516<span class="op">$</span>Name),]</a></code></pre></div>
 <pre><code>##     League           Name Team Position GamesPlayed TotalMinutesPlayed
 ## 15     NBA James Anderson  SAC       SG          51                721
 ## 132    NBA    James Ennis  NOR       SF          22                329
@@ -1894,6 +1921,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="ref-R-stringr">
 <p>Wickham, Hadley. 2019b. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.</p>
+</div>
+<div id="ref-R-tidyr">
+<p>Wickham, Hadley, and Lionel Henry. 2019. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.</p>
 </div>
 </div>
             </section>

@@ -24,7 +24,7 @@
 <meta name="author" content="曾意儒 Yi-Ju Tseng" />
 
 
-<meta name="date" content="2020-04-07" />
+<meta name="date" content="2020-05-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -475,7 +475,7 @@ JSON (<strong>J</strong>ava<strong>s</strong>cript <strong>O</strong>bject <stro
 </ul>
 <p><a href="https://api.github.com/users/yijutseng/repos" target="_blank">JSON檔案範例</a></p>
 <p>許多Open Data也用JSON格式儲存，例如<a href="http://data.taipei/opendata/datalist/datasetMeta?oid=6a3e862a-e1cb-4e44-b989-d35609559463" target="_blank">臺北市開放認養動物</a>資料，根據資料的API資訊，可得資料擷取網址http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&amp;rid=f4a75ba9-7721-4363-884d-c3820b0b917c 。</p>
-<p>將JSON檔案匯入R可以使用<code>jsonlite</code><span class="citation">(Ooms, Temple Lang, and Hilaiel <a href="#ref-R-jsonlite">2018</a>)</span> package，套件使用前必須安裝，安裝套件方法請參考Chapter <a href="intro.html#intro">1</a>，載入後，可使用<code>fromJSON()</code>函數載入JSON資料。
+<p>將JSON檔案匯入R可以使用<code>jsonlite</code><span class="citation">(Ooms <a href="#ref-R-jsonlite">2020</a>)</span> package，套件使用前必須安裝，安裝套件方法請參考Chapter <a href="intro.html#intro">1</a>，載入後，可使用<code>fromJSON()</code>函數載入JSON資料。
 如API網址為<strong>httr</strong>類別，需要載入<code>httr</code><span class="citation">(<span class="citeproc-not-found" data-reference-id="httr"><strong>???</strong></span>)</span> package，並使用<code>GET()</code>函數處理資料擷取網址。</p>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb252-1" data-line-number="1">PetData&lt;-jsonlite<span class="op">::</span><span class="kw">fromJSON</span>(<span class="st">&quot;http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&amp;rid=f4a75ba9-7721-4363-884d-c3820b0b917c&quot;</span>)</a>
 <a class="sourceLine" id="cb252-2" data-line-number="2"><span class="kw">str</span>(PetData)</a></code></pre></div>
@@ -878,7 +878,7 @@ JSON (<strong>J</strong>ava<strong>s</strong>cript <strong>O</strong>bject <stro
 <p>Barbera, Pablo, Michael Piccirilli, Andrew Geisler, and Wouter van Atteveldt. 2017. <em>Rfacebook: Access to Facebook Api via R</em>. <a href="https://CRAN.R-project.org/package=Rfacebook">https://CRAN.R-project.org/package=Rfacebook</a>.</p>
 </div>
 <div id="ref-R-jsonlite">
-<p>Ooms, Jeroen, Duncan Temple Lang, and Lloyd Hilaiel. 2018. <em>Jsonlite: A Robust, High Performance Json Parser and Generator for R</em>. <a href="https://CRAN.R-project.org/package=jsonlite">https://CRAN.R-project.org/package=jsonlite</a>.</p>
+<p>Ooms, Jeroen. 2020. <em>Jsonlite: A Robust, High Performance Json Parser and Generator for R</em>. <a href="https://CRAN.R-project.org/package=jsonlite">https://CRAN.R-project.org/package=jsonlite</a>.</p>
 </div>
 <div id="ref-R-XML">
 <p>Temple Lang, Duncan, and the CRAN Team. 2019. <em>XML: Tools for Parsing and Generating Xml Within R and S-Plus</em>. <a href="https://CRAN.R-project.org/package=XML">https://CRAN.R-project.org/package=XML</a>.</p>
