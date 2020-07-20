@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 R語言101 | 資料科學與R語言</title>
   <meta name="description" content="介紹如何使用R語言完成資料讀取、處理、分析與呈現，以及大數據技術與R的整合" />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 R語言101 | 資料科學與R語言" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="曾意儒 Yi-Ju Tseng" />
 
 
-<meta name="date" content="2020-05-25" />
+<meta name="date" content="2020-07-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -85,7 +85,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.1" data-path="vis.html"><a href="vis.html#ggmap面量圖"><i class="fa fa-check"></i><b>8.4.1</b> ggmap+面量圖</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="vis.html"><a href="vis.html#treemap"><i class="fa fa-check"></i><b>8.5</b> Treemap</a></li>
-<li class="chapter" data-level="8.6" data-path="vis.html"><a href="vis.html#參考文件與資源-2"><i class="fa fa-check"></i><b>8.6</b> 參考文件與資源</a></li>
+<li class="chapter" data-level="8.6" data-path="eda.html"><a href="eda.html#參考文件與資源"><i class="fa fa-check"></i><b>8.6</b> 參考文件與資源</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html"><i class="fa fa-check"></i><b>9</b> 互動式資料呈現</a><ul>
 <li class="chapter" data-level="9.1" data-path="InteractiveGraphics.html"><a href="InteractiveGraphics.html#ggvis"><i class="fa fa-check"></i><b>9.1</b> ggvis</a></li>
@@ -309,13 +309,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.7.3" data-path="datamining.html"><a href="datamining.html#decision-trees-決策樹驗證"><i class="fa fa-check"></i><b>10.7.3</b> Decision Trees 決策樹驗證</a></li>
 </ul></li>
 <li class="chapter" data-level="10.8" data-path="datamining.html"><a href="datamining.html#case-study"><i class="fa fa-check"></i><b>10.8</b> Case Study</a></li>
-<li class="chapter" data-level="10.9" data-path="datamining.html"><a href="datamining.html#參考資料-2"><i class="fa fa-check"></i><b>10.9</b> 參考資料</a></li>
+<li class="chapter" data-level="10.9" data-path="function.html"><a href="function.html#參考資料"><i class="fa fa-check"></i><b>10.9</b> 參考資料</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="big.html"><a href="big.html"><i class="fa fa-check"></i><b>11</b> 從小數據到大數據分析</a><ul>
 <li class="chapter" data-level="11.1" data-path="big.html"><a href="big.html#r-hadoop"><i class="fa fa-check"></i><b>11.1</b> R + Hadoop</a></li>
 <li class="chapter" data-level="11.2" data-path="big.html"><a href="big.html#rhadoop安裝測試流程-cloudera"><i class="fa fa-check"></i><b>11.2</b> RHadoop安裝測試流程 (Cloudera)</a><ul>
 <li class="chapter" data-level="11.2.1" data-path="big.html"><a href="big.html#系統軟體版本資訊"><i class="fa fa-check"></i><b>11.2.1</b> 系統/軟體版本資訊</a></li>
-<li class="chapter" data-level="11.2.2" data-path="big.html"><a href="big.html#參考資料-3"><i class="fa fa-check"></i><b>11.2.2</b> 參考資料</a></li>
+<li class="chapter" data-level="11.2.2" data-path="function.html"><a href="function.html#參考資料"><i class="fa fa-check"></i><b>11.2.2</b> 參考資料</a></li>
 <li class="chapter" data-level="11.2.3" data-path="big.html"><a href="big.html#安裝步驟"><i class="fa fa-check"></i><b>11.2.3</b> 安裝步驟</a></li>
 <li class="chapter" data-level="11.2.4" data-path="big.html"><a href="big.html#測試前先解決權限問題"><i class="fa fa-check"></i><b>11.2.4</b> 測試前，先解決權限問題</a></li>
 <li class="chapter" data-level="11.2.5" data-path="big.html"><a href="big.html#測試"><i class="fa fa-check"></i><b>11.2.5</b> 測試</a></li>
@@ -367,44 +367,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="http://www.r-project.org/" target="_blank">R語言</a>是一種自由軟體程式語言，主要用於資料分析與統計運算，2000年時終於發表R 1.0.0，有關R語言的發展歷史可參考<a href="https://zh.wikipedia.org/wiki/R%E8%AF%AD%E8%A8%80" target="_blank">維基百科</a>。基本的R軟體已經內建多種統計及分析功能，其餘功能可以透過安裝<strong>套件（Packages）</strong>加載，眾多的套件使R的使用者可以【站在巨人的肩膀上(Standing on the shoulders of
 giants (Hal R. Varian, Google))】做資料分析，截至2017年1月為止，R軟體可另外安裝的套件數目共有10,000個以上 (<a href="https://www.rstudio.com/rviews/2017/01/06/10000-cran-packages/" target="_blank">R Studio報導</a>)。常用的套件清單可參考各項網路資訊，如<a href="https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages" target="_blank">R Studio的整理：Quick list of useful R packages</a></p>
 <p>安裝套件Package的方法如下：</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;套件名稱&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;套件名稱&quot;</span>)</a></code></pre></div>
 <p>值得注意的是，套件名稱需要加上雙引號，舉例來說，若要安裝<code>ggplot2</code>套件，則要在R的Console視窗內輸入：</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</a></code></pre></div>
 <p>若要載入<strong>已安裝</strong>的套件，則輸入<code>library(套件名稱)</code>，範例：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(ggplot2)</a></code></pre></div>
 <p>載入已安裝的套件時，可以<strong>不用</strong>在套件名稱前後加雙引號，但也可以加 （<a href="http://stackoverflow.com/questions/25210455/how-can-library-accept-both-quoted-and-unquoted-strings" target="_blank">參考資料</a>）。</p>
 </div>
 <div id="函數使用" class="section level2">
 <h2><span class="header-section-number">1.2</span> 函數使用</h2>
 <p>在R中有許多內建函數，安裝套件後各套件也會提供各式各樣寫好的函數，函數使用方式為<code>函數名稱(參數1,參數2,....)</code>，以計算平均數為例，可使用<code>mean()</code>函數，範例如下:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)) <span class="co">##計算1~6的平均數</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)) <span class="co">##計算1~6的平均數</span></a></code></pre></div>
 <pre><code>## [1] 3.5</code></pre>
 <p>若想知道各函數所需參數，可使用<code>?函數名稱</code>觀看函數作者所撰寫的說明文件</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">?mean</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">?mean</a></code></pre></div>
 <p>除非有指定參數名稱，函數的參數設定有順序性，如序列產生函數<code>seq()</code>，參數順序為<code>from, to, by</code>，代表序列起點、序列終點，以及相隔單位。</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">by=</span><span class="dv">2</span>)<span class="co">#1~9，每隔2產生一數字</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">1</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">by=</span><span class="dv">2</span>)<span class="co">#1~9，每隔2產生一數字</span></a></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">2</span>)<span class="co">#按照順序輸入參數，可省去參數名稱</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">seq</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">2</span>)<span class="co">#按照順序輸入參數，可省去參數名稱</span></a></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">seq</span>(<span class="dt">by=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">from=</span><span class="dv">1</span>)<span class="co">#若不想照順序輸入參數，需要指定參數名稱</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">seq</span>(<span class="dt">by=</span><span class="dv">2</span>,<span class="dt">to=</span><span class="dv">9</span>,<span class="dt">from=</span><span class="dv">1</span>)<span class="co">#若不想照順序輸入參數，需要指定參數名稱</span></a></code></pre></div>
 <pre><code>## [1] 1 3 5 7 9</code></pre>
 </div>
 <div id="變數設定" class="section level2">
 <h2><span class="header-section-number">1.3</span> 變數設定</h2>
 <p>在開始深入學習R語言之前，首要任務是學習最基本的R程式碼：<strong>變數設定</strong>，在R語言中，主要使用<code>&lt;-</code>設定變數，設定方法為：<strong>變數名稱</strong><code>&lt;-</code><strong>變數內容(值)</strong>，雖然<strong>變數名稱</strong>可依箭頭方向放置於左側<code>&lt;-</code>或右側<code>-&gt;</code>，但為方便閱讀，<strong>變數名稱</strong>多放置於左側。</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">a&lt;-<span class="dv">1</span> </a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="dv">2</span>-&gt;b</a>
-<a class="sourceLine" id="cb17-3" data-line-number="3">a</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">a&lt;-<span class="dv">1</span> </a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="dv">2</span>-&gt;b</a>
+<a class="sourceLine" id="cb17-3" title="3">a</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">b</a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">b</a></code></pre></div>
 <pre><code>## [1] 2</code></pre>
 <p>R語言也接受使用<code>=</code>設定變數，此時<strong>變數名稱</strong>必須在左側，如：<strong>變數名稱</strong><code>=</code><strong>變數內容</strong></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">c=<span class="dv">1</span> </a>
-<a class="sourceLine" id="cb21-2" data-line-number="2">c</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">c=<span class="dv">1</span> </a>
+<a class="sourceLine" id="cb21-2" title="2">c</a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>除了<strong>變數設定</strong>外，<code>str()</code>函數也為常用基本函數，<code>str()</code>用在檢查與總覽各類變數型態。</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">d&lt;-<span class="dv">3</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">str</span>(d)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">d&lt;-<span class="dv">3</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="kw">str</span>(d)</a></code></pre></div>
 <pre><code>##  num 3</code></pre>
 <p>變數的命名有以下規則:</p>
 <ul>
@@ -424,48 +424,48 @@ next, repeat, return, TRUE, while等</li>
 <div id="數值-numeric" class="section level3">
 <h3><span class="header-section-number">1.5.1</span> 數值 numeric</h3>
 <p>數值包括整數（沒有小數點）與浮點數（有小數點）的數值</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">num1&lt;-<span class="dv">100</span> </a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">num2&lt;-<span class="fl">1000.001</span></a></code></pre></div>
-<p>值得注意的是，若數值長度超過 <code>2^53</code>，必須導入<code>bit64</code> package <span class="citation">(Oehlschlägel <a href="#ref-R-bit64">2017</a>)</span>，將數值長度上限提高為<code>2^63</code>，才能表示完整數值</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">num1&lt;-<span class="dv">100</span> </a>
+<a class="sourceLine" id="cb25-2" title="2">num2&lt;-<span class="fl">1000.001</span></a></code></pre></div>
+<p>值得注意的是，若數值長度超過 <code>2^53</code>，必須導入<code>bit64</code> package <span class="citation">(Oehlschlagel <a href="#ref-R-bit64" role="doc-biblioref">2020</a>)</span>，將數值長度上限提高為<code>2^63</code>，才能表示完整數值</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>) </a></code></pre></div>
 <pre><code>## [1] 9007199254740992</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">53</span><span class="op">+</span><span class="dv">1</span>, <span class="dt">digits=</span><span class="dv">20</span>) <span class="co"># +1後，數值仍與2^53相同</span></a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">print</span>(<span class="dv">2</span><span class="op">^</span><span class="dv">53</span><span class="op">+</span><span class="dv">1</span>, <span class="dt">digits=</span><span class="dv">20</span>) <span class="co"># +1後，數值仍與2^53相同</span></a></code></pre></div>
 <pre><code>## [1] 9007199254740992</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">library</span>(bit64) <span class="co"># 導入bit64 package</span></a>
-<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">library</span>(bit64) <span class="co"># 導入bit64 package</span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">53</span>, <span class="dt">digits=</span><span class="dv">20</span>)</a></code></pre></div>
 <pre><code>## integer64
 ## [1] 9007199254740992</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">53</span><span class="op">+</span><span class="dv">1</span>, <span class="dt">digits=</span><span class="dv">20</span>)<span class="co"># 導入bit64後，可得正確答案</span></a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">print</span>(<span class="kw">as.integer64</span>(<span class="dv">2</span>)<span class="op">^</span><span class="dv">53</span><span class="op">+</span><span class="dv">1</span>, <span class="dt">digits=</span><span class="dv">20</span>)<span class="co"># 導入bit64後，可得正確答案</span></a></code></pre></div>
 <pre><code>## integer64
 ## [1] 9007199254740993</code></pre>
 </div>
 <div id="字串-character" class="section level3">
 <h3><span class="header-section-number">1.5.2</span> 字串 character</h3>
-<p>用雙引號<code>&quot;</code>框起的文字會被儲存為字串格式，若在數字前後加上雙引號，數字也會被儲存為文字形式，無法進行數值的加減乘除等運算。</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">char1&lt;-<span class="st">&quot;abcTest&quot;</span> </a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">char2&lt;-<span class="st">&quot;100&quot;</span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3">char3&lt;-<span class="st">&quot;200&quot;</span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="co">#char2+char3 #會輸出Error message: non-numeric argument to binary operator</span></a></code></pre></div>
+<p>用雙引號<code>"</code>框起的文字會被儲存為字串格式，若在數字前後加上雙引號，數字也會被儲存為文字形式，無法進行數值的加減乘除等運算。</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">char1&lt;-<span class="st">&quot;abcTest&quot;</span> </a>
+<a class="sourceLine" id="cb34-2" title="2">char2&lt;-<span class="st">&quot;100&quot;</span></a>
+<a class="sourceLine" id="cb34-3" title="3">char3&lt;-<span class="st">&quot;200&quot;</span></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="co">#char2+char3 #會輸出Error message: non-numeric argument to binary operator</span></a></code></pre></div>
 </div>
 <div id="布林變數-logic" class="section level3">
 <h3><span class="header-section-number">1.5.3</span> 布林變數 logic</h3>
 <p>用於邏輯判斷，可使用大寫<strong>TRUE</strong>或<strong>T</strong>代表<strong>真</strong>，大寫<strong>FALSE</strong>或<strong>F</strong>代表假。</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">boolT&lt;-<span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb35-2" data-line-number="2">boolT1&lt;-T</a>
-<a class="sourceLine" id="cb35-3" data-line-number="3">boolF&lt;-<span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb35-4" data-line-number="4">boolF1&lt;-F</a></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">boolT&lt;-<span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb35-2" title="2">boolT1&lt;-T</a>
+<a class="sourceLine" id="cb35-3" title="3">boolF&lt;-<span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb35-4" title="4">boolF1&lt;-F</a></code></pre></div>
 </div>
 <div id="日期-date" class="section level3">
 <h3><span class="header-section-number">1.5.4</span> 日期 (Date)</h3>
 <p>用於表示日期，於資料分析中常用，使用<code>Sys.Date()</code>指令可得系統日期。</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">dateBook&lt;-<span class="kw">Sys.Date</span>()</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">dateBook</a></code></pre></div>
-<pre><code>## [1] &quot;2020-05-25&quot;</code></pre>
-<p>日期與字串的相關轉換操作可考慮使用簡單易懂的<code>lubridate</code><span class="citation">(Spinu, Grolemund, and Wickham <a href="#ref-R-lubridate">2018</a>)</span> package，如果想要將<code>年/月/日</code>格式的文字轉換為日期物件，可使用<code>ymd()</code>函數（y表年year，m表月month，d表日day），如果想要將<code>月/日/年</code>格式的文字轉換為日期物件，則使用<code>mdy()</code>函數，以此類推。</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="kw">ymd</span>(<span class="st">&#39;2012/3/3&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">dateBook&lt;-<span class="kw">Sys.Date</span>()</a>
+<a class="sourceLine" id="cb36-2" title="2">dateBook</a></code></pre></div>
+<pre><code>## [1] &quot;2020-07-20&quot;</code></pre>
+<p>日期與字串的相關轉換操作可考慮使用簡單易懂的<code>lubridate</code><span class="citation">(Spinu, Grolemund, and Wickham <a href="#ref-R-lubridate" role="doc-biblioref">2020</a>)</span> package，如果想要將<code>年/月/日</code>格式的文字轉換為日期物件，可使用<code>ymd()</code>函數（y表年year，m表月month，d表日day），如果想要將<code>月/日/年</code>格式的文字轉換為日期物件，則使用<code>mdy()</code>函數，以此類推。</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="kw">ymd</span>(<span class="st">&#39;2012/3/3&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2012-03-03&quot;</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">mdy</span>(<span class="st">&#39;3/3/2012&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="kw">mdy</span>(<span class="st">&#39;3/3/2012&#39;</span>)</a></code></pre></div>
 <pre><code>## [1] &quot;2012-03-03&quot;</code></pre>
 <p>其他使用方式可參考 <a href="http://blog.yhat.com/static/pdf/R_date_cheat_sheet.pdf" target="_blank">The Yhat Blog</a>。</p>
 </div>
@@ -483,31 +483,31 @@ next, repeat, return, TRUE, while等</li>
 <li>餘數 <code>%%</code></li>
 <li>次方 <code>^</code></li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">num1&lt;-<span class="dv">1</span></a>
-<a class="sourceLine" id="cb42-2" data-line-number="2">num2&lt;-<span class="dv">100</span></a>
-<a class="sourceLine" id="cb42-3" data-line-number="3">num1<span class="op">+</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">num1&lt;-<span class="dv">1</span></a>
+<a class="sourceLine" id="cb42-2" title="2">num2&lt;-<span class="dv">100</span></a>
+<a class="sourceLine" id="cb42-3" title="3">num1<span class="op">+</span>num2</a></code></pre></div>
 <pre><code>## [1] 101</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">num1<span class="op">-</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">num1<span class="op">-</span>num2</a></code></pre></div>
 <pre><code>## [1] -99</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">num1<span class="op">*</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">num1<span class="op">*</span>num2</a></code></pre></div>
 <pre><code>## [1] 100</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">num1<span class="op">/</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">num1<span class="op">/</span>num2</a></code></pre></div>
 <pre><code>## [1] 0.01</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="dv">100</span><span class="op">%%</span><span class="dv">3</span> <span class="co">##100除以3後所得餘數</span></a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="dv">100</span><span class="op">%%</span><span class="dv">3</span> <span class="co">##100除以3後所得餘數</span></a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="co">##2的3次方</span></a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1"><span class="dv">2</span><span class="op">^</span><span class="dv">3</span> <span class="co">##2的3次方</span></a></code></pre></div>
 <pre><code>## [1] 8</code></pre>
 <p>###進階數學函數
 - 四捨五入 <code>round()</code>
 - 無條件捨去 <code>floor()</code>
 - 無條件進位 <code>ceiling()</code></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">num1&lt;-<span class="fl">1.568</span></a>
-<a class="sourceLine" id="cb54-2" data-line-number="2">num2&lt;-<span class="fl">2.121</span></a>
-<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="kw">round</span>(num2,<span class="dt">digits =</span> <span class="dv">1</span>) <span class="co">#2.121四捨五入至小數點第一位</span></a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">num1&lt;-<span class="fl">1.568</span></a>
+<a class="sourceLine" id="cb54-2" title="2">num2&lt;-<span class="fl">2.121</span></a>
+<a class="sourceLine" id="cb54-3" title="3"><span class="kw">round</span>(num2,<span class="dt">digits =</span> <span class="dv">1</span>) <span class="co">#2.121四捨五入至小數點第一位</span></a></code></pre></div>
 <pre><code>## [1] 2.1</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">floor</span>(num1) <span class="co">##1.568</span></a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1"><span class="kw">floor</span>(num1) <span class="co">##1.568</span></a></code></pre></div>
 <pre><code>## [1] 1</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"><span class="kw">ceiling</span>(num2) <span class="co">##2.121</span></a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="kw">ceiling</span>(num2) <span class="co">##2.121</span></a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
 </div>
 <div id="邏輯運算" class="section level3">
@@ -520,34 +520,34 @@ next, repeat, return, TRUE, while等</li>
 <li>大於等於 <code>&gt;=</code></li>
 <li>小於等於 <code>&lt;=</code></li>
 </ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">num1&lt;-<span class="dv">1</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2">num2&lt;-<span class="dv">100</span></a>
-<a class="sourceLine" id="cb60-3" data-line-number="3">num1<span class="op">&gt;</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">num1&lt;-<span class="dv">1</span></a>
+<a class="sourceLine" id="cb60-2" title="2">num2&lt;-<span class="dv">100</span></a>
+<a class="sourceLine" id="cb60-3" title="3">num1<span class="op">&gt;</span>num2</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">num1<span class="op">&lt;</span>num2</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">num1<span class="op">&lt;</span>num2</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>文字字串也可比較大小</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">char1&lt;-<span class="st">&quot;abcTest&quot;</span> </a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">char2&lt;-<span class="st">&quot;defTest&quot;</span></a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">char1<span class="op">&gt;</span>char2</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">char1&lt;-<span class="st">&quot;abcTest&quot;</span> </a>
+<a class="sourceLine" id="cb64-2" title="2">char2&lt;-<span class="st">&quot;defTest&quot;</span></a>
+<a class="sourceLine" id="cb64-3" title="3">char1<span class="op">&gt;</span>char2</a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
 <p>邏輯混合判斷，和JAVA等語言不同的是，在R中使用<strong>單符號</strong>即可表示且<code>&amp;</code>和或<code>|</code></p>
 <ul>
 <li>且 <code>&amp;</code></li>
 <li>或 <code>|</code></li>
 </ul>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">TRUE</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span></a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="ot">TRUE</span> <span class="op">&amp;</span><span class="st"> </span><span class="ot">FALSE</span></a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">TRUE</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">FALSE</span></a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="ot">TRUE</span> <span class="op">|</span><span class="st"> </span><span class="ot">FALSE</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>反向布林變數<code>!</code></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1"><span class="op">!</span><span class="ot">TRUE</span></a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1"><span class="op">!</span><span class="ot">TRUE</span></a></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="op">!</span><span class="ot">FALSE</span></a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="op">!</span><span class="ot">FALSE</span></a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
@@ -559,11 +559,11 @@ next, repeat, return, TRUE, while等</li>
 <li>Error：有錯，而且無法繼續執行程式</li>
 <li>Condition：可能會發生的情況</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">log</span>(<span class="op">-</span><span class="dv">1</span>)</a></code></pre></div>
-<pre><code>## Warning in log(-1): NaNs produced</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1"><span class="kw">log</span>(<span class="op">-</span><span class="dv">1</span>)</a></code></pre></div>
+<pre><code>## Warning in log(-1): 產生了 NaNs</code></pre>
 <pre><code>## [1] NaN</code></pre>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">mena</span>(<span class="ot">NA</span>)</a></code></pre></div>
-<pre><code>## Error in mena(NA): could not find function &quot;mena&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="kw">mena</span>(<span class="ot">NA</span>)</a></code></pre></div>
+<pre><code>## Error in mena(NA): 沒有這個函數 &quot;mena&quot;</code></pre>
 <p>錯誤訊息範例1:</p>
 <pre><code># Error: could not find function &quot;fetch_NBAPlayerStatistics&quot;
 # 找不到&quot;fetch_NBAPlayerStatistics&quot; function</code></pre>
@@ -576,100 +576,95 @@ next, repeat, return, TRUE, while等</li>
 <div id="help" class="section level2">
 <h2><span class="header-section-number">1.8</span> Help</h2>
 <p>R語言與套件均有完整的文件與範例可以參考，在R的執行視窗中，輸入<code>?函數名稱</code>或<code>?套件名稱</code>即可看到函數或套件的使用說明</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">?ggplot2</a>
-<a class="sourceLine" id="cb85-2" data-line-number="2">?ymd</a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1">?ggplot2</a>
+<a class="sourceLine" id="cb85-2" title="2">?ymd</a></code></pre></div>
 <p>除此之外，<a href="http://stackoverflow.com/" target="_blank">Stack Overflow</a>中也有許多問答，可直接在網站中搜尋關鍵字與錯誤訊息。</p>
 <p>如果找不到解答，發問時請附上可以重現錯誤的<strong>程式碼</strong>與<strong>資料</strong>，以及系統/套件的版本資訊，版本資訊可以透過執行下列程式碼取得：</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
-<pre><code>## R version 3.6.1 (2019-07-05)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Catalina 10.15.4
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" title="1"><span class="kw">sessionInfo</span>()</a></code></pre></div>
+<pre><code>## R version 4.0.1 (2020-06-06)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 18363)
 ## 
 ## Matrix products: default
-## BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.6/Resources/lib/libRlapack.dylib
 ## 
-## Random number generation:
-##  RNG:     Mersenne-Twister 
-##  Normal:  Inversion 
-##  Sample:  Rounding 
-##  
 ## locale:
-## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+## [1] LC_COLLATE=Chinese (Traditional)_Taiwan.950 
+## [2] LC_CTYPE=Chinese (Traditional)_Taiwan.950   
+## [3] LC_MONETARY=Chinese (Traditional)_Taiwan.950
+## [4] LC_NUMERIC=C                                
+## [5] LC_TIME=Chinese (Traditional)_Taiwan.950    
 ## 
 ## attached base packages:
 ## [1] grid      stats     graphics  grDevices utils     datasets  methods  
 ## [8] base     
 ## 
 ## other attached packages:
-##  [1] mlbench_2.1-1         tidyr_1.0.0           curl_4.2             
-##  [4] treemap_2.4-2         purrr_0.3.3           caret_6.0-84         
-##  [7] lattice_0.20-38       MASS_7.3-51.4         arulesViz_1.3-3      
-## [10] arules_1.6-4          Matrix_1.2-17         fields_9.9           
-## [13] maps_3.3.0            spam_2.3-0            dotCall64_1.0-0      
-## [16] rpart.plot_3.0.8      rpart_4.1-15          googleVis_0.6.4      
-## [19] ggvis_0.4.4           plotly_4.9.0          shiny_1.4.0.2        
-## [22] treemapify_2.5.3      WDI_2.6.0             choroplethrMaps_1.0.1
-## [25] choroplethr_3.6.3     acs_2.1.4             ggmap_3.0.0          
-## [28] maptools_0.9-8        rgeos_0.5-2           rgdal_1.4-6          
-## [31] sp_1.3-1              rvest_0.3.5           xml2_1.2.2           
-## [34] Rfacebook_0.6.15      httpuv_1.5.2          rjson_0.2.20         
-## [37] XML_3.98-1.20         jsonlite_1.6.1        httr_1.4.1           
-## [40] readxl_1.3.1          readr_1.3.1           SportsAnalytics_0.2  
-## [43] reshape2_1.4.3        stringr_1.4.0         data.table_1.12.6    
-## [46] RCurl_1.95-4.12       bitops_1.0-6          rmarkdown_2.1        
-## [49] knitr_1.28            bookdown_0.14         bit64_0.9-7          
-## [52] bit_1.1-14            lubridate_1.7.4       dplyr_0.8.5          
-## [55] ggplot2_3.2.1        
+##  [1] tidyr_1.1.0           curl_4.3              treemap_2.4-2        
+##  [4] purrr_0.3.4           caret_6.0-86          lattice_0.20-41      
+##  [7] MASS_7.3-51.6         arulesViz_1.3-3       arules_1.6-6         
+## [10] Matrix_1.2-18         fields_10.3           maps_3.3.0           
+## [13] spam_2.5-1            dotCall64_1.0-0       rpart.plot_3.0.8     
+## [16] rpart_4.1-15          googleVis_0.6.6       ggvis_0.4.5          
+## [19] plotly_4.9.2.1        shiny_1.4.0.2         treemapify_2.5.3     
+## [22] WDI_2.7.1             choroplethrMaps_1.0.1 maptools_1.0-1       
+## [25] rgeos_0.5-3           rgdal_1.5-12          sp_1.4-2             
+## [28] rvest_0.3.5           xml2_1.3.2            Rfacebook_0.6.15     
+## [31] httpuv_1.5.4          rjson_0.2.20          jsonlite_1.6.1       
+## [34] httr_1.4.1            readxl_1.3.1          readr_1.3.1          
+## [37] SportsAnalytics_0.2   reshape2_1.4.4        data.table_1.12.8    
+## [40] RCurl_1.98-1.2        rmarkdown_2.3         knitr_1.28           
+## [43] bookdown_0.20         bit64_0.9-7.1         bit_1.1-15.2         
+## [46] lubridate_1.7.9       dplyr_1.0.0           choroplethr_3.6.3    
+## [49] acs_2.1.4             XML_3.99-0.3          stringr_1.4.0        
+## [52] ggmap_3.0.0.902       ggplot2_3.3.1        
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] uuid_0.1-2           backports_1.1.5      Hmisc_4.2-0         
-##   [4] servr_0.16           igraph_1.2.4.1       plyr_1.8.4          
-##   [7] lazyeval_0.2.2       splines_3.6.1        crosstalk_1.0.0     
-##  [10] gridBase_0.4-7       digest_0.6.25        foreach_1.4.7       
-##  [13] htmltools_0.4.0      viridis_0.5.1        fansi_0.4.0         
-##  [16] gdata_2.18.0         magrittr_1.5         checkmate_1.9.4     
-##  [19] cluster_2.1.0        gclus_1.3.2          recipes_0.1.12      
-##  [22] ggfittext_0.8.1      gower_0.2.1          jpeg_0.1-8          
-##  [25] colorspace_1.4-1     rappdirs_0.3.1       xfun_0.13           
-##  [28] crayon_1.3.4         zoo_1.8-6            survival_2.44-1.1   
-##  [31] tigris_0.8.2         iterators_1.0.12     glue_1.4.1          
-##  [34] registry_0.5-1       gtable_0.3.0         ipred_0.9-9         
-##  [37] scales_1.1.1         DBI_1.0.0            Rcpp_1.0.4.6        
-##  [40] viridisLite_0.3.0    xtable_1.8-4         htmlTable_1.13.2    
-##  [43] units_0.6-5          mapproj_1.2.6        foreign_0.8-71      
-##  [46] Formula_1.2-3        stats4_3.6.1         lava_1.6.6          
-##  [49] prodlim_2018.04.18   DT_0.9               vcd_1.4-4           
-##  [52] htmlwidgets_1.5.1    gplots_3.0.1.1       RColorBrewer_1.1-2  
-##  [55] acepack_1.4.1        ellipsis_0.3.0       farver_2.0.3        
-##  [58] pkgconfig_2.0.3      nnet_7.3-12          utf8_1.1.4          
-##  [61] RJSONIO_1.3-1.3      labeling_0.3         tidyselect_1.0.0    
-##  [64] rlang_0.4.6          later_1.0.0          visNetwork_2.0.8    
-##  [67] munsell_0.5.0        cellranger_1.1.0     tools_3.6.1         
-##  [70] cli_2.0.2            generics_0.0.2       evaluate_0.14       
-##  [73] fastmap_1.0.1        yaml_2.2.1           ModelMetrics_1.2.2  
-##  [76] caTools_1.17.1.2     RgoogleMaps_1.4.4    dendextend_1.12.0   
-##  [79] packrat_0.5.0        nlme_3.1-140         mime_0.9            
-##  [82] compiler_3.6.1       rstudioapi_0.11      png_0.1-7           
-##  [85] e1071_1.7-2          tibble_3.0.1         stringi_1.4.6       
-##  [88] highr_0.8            classInt_0.4-2       vctrs_0.3.0         
-##  [91] pillar_1.4.4         lifecycle_0.2.0      lmtest_0.9-37       
-##  [94] seriation_1.2-8      R6_2.4.1             latticeExtra_0.6-28 
-##  [97] promises_1.1.0       TSP_1.1-7            KernSmooth_2.23-15  
-## [100] gridExtra_2.3        codetools_0.2-16     gtools_3.8.1        
-## [103] assertthat_0.2.1     withr_2.1.2          hms_0.5.3           
-## [106] timeDate_3043.102    class_7.3-15         Cairo_1.5-10        
-## [109] sf_0.8-0             scatterplot3d_0.3-41 base64enc_0.1-3</code></pre>
+##   [1] uuid_0.1-4           backports_1.1.7      Hmisc_4.4-0         
+##   [4] igraph_1.2.5         plyr_1.8.6           lazyeval_0.2.2      
+##   [7] splines_4.0.1        gridBase_0.4-7       digest_0.6.25       
+##  [10] foreach_1.5.0        htmltools_0.4.0      viridis_0.5.1       
+##  [13] gdata_2.18.0         fansi_0.4.1          magrittr_1.5        
+##  [16] checkmate_2.0.0      cluster_2.1.0        gclus_1.3.2         
+##  [19] recipes_0.1.12       ggfittext_0.9.0      gower_0.2.1         
+##  [22] jpeg_0.1-8.1         colorspace_1.4-1     rappdirs_0.3.1      
+##  [25] xfun_0.14            crayon_1.3.4         zoo_1.8-8           
+##  [28] survival_3.1-12      tigris_1.0           iterators_1.0.12    
+##  [31] glue_1.4.1           registry_0.5-1       gtable_0.3.0        
+##  [34] ipred_0.9-9          scales_1.1.1         DBI_1.1.0           
+##  [37] Rcpp_1.0.4.6         viridisLite_0.3.0    xtable_1.8-4        
+##  [40] htmlTable_2.0.1      units_0.6-7          foreign_0.8-80      
+##  [43] Formula_1.2-3        stats4_4.0.1         lava_1.6.7          
+##  [46] prodlim_2019.11.13   DT_0.13              vcd_1.4-7           
+##  [49] htmlwidgets_1.5.1    gplots_3.0.3         RColorBrewer_1.1-2  
+##  [52] acepack_1.4.1        ellipsis_0.3.1       pkgconfig_2.0.3     
+##  [55] farver_2.0.3         nnet_7.3-14          RJSONIO_1.3-1.4     
+##  [58] tidyselect_1.1.0     labeling_0.3         rlang_0.4.6         
+##  [61] later_1.1.0.1        visNetwork_2.0.9     munsell_0.5.0       
+##  [64] cellranger_1.1.0     tools_4.0.1          cli_2.0.2           
+##  [67] generics_0.0.2       evaluate_0.14        fastmap_1.0.1       
+##  [70] yaml_2.2.1           ModelMetrics_1.2.2.2 caTools_1.18.0      
+##  [73] dendextend_1.13.4    RgoogleMaps_1.4.5.3  packrat_0.5.0       
+##  [76] nlme_3.1-148         mime_0.9             compiler_4.0.1      
+##  [79] rstudioapi_0.11      png_0.1-7            e1071_1.7-3         
+##  [82] tibble_3.0.1         stringi_1.4.6        highr_0.8           
+##  [85] classInt_0.4-3       vctrs_0.3.1          pillar_1.4.4        
+##  [88] lifecycle_0.2.0      lmtest_0.9-37        bitops_1.0-6        
+##  [91] seriation_1.2-8      R6_2.4.1             latticeExtra_0.6-29 
+##  [94] promises_1.1.1       TSP_1.1-10           KernSmooth_2.23-17  
+##  [97] gridExtra_2.3        codetools_0.2-16     gtools_3.8.2        
+## [100] assertthat_0.2.1     withr_2.2.0          hms_0.5.3           
+## [103] timeDate_3043.102    class_7.3-17         pROC_1.16.2         
+## [106] sf_0.9-5             scatterplot3d_0.3-41 base64enc_0.1-3</code></pre>
 
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-R-bit64">
-<p>Oehlschlägel, Jens. 2017. <em>Bit64: A S3 Class for Vectors of 64bit Integers</em>. <a href="https://CRAN.R-project.org/package=bit64">https://CRAN.R-project.org/package=bit64</a>.</p>
+<p>Oehlschlagel, Jens. 2020. <em>Bit64: A S3 Class for Vectors of 64bit Integers</em>. <a href="https://CRAN.R-project.org/package=bit64">https://CRAN.R-project.org/package=bit64</a>.</p>
 </div>
 <div id="ref-R-lubridate">
-<p>Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2018. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.</p>
+<p>Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2020. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.</p>
 </div>
 </div>
             </section>
@@ -697,12 +692,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -717,7 +711,11 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"view": {
+"link": null,
+"text": null
+},
+"download": ["DataAnalyticsWithR.pdf"],
 "toc": {
 "collapse": "subsection"
 }
